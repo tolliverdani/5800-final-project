@@ -10,24 +10,21 @@ def get_station_response():
         "rest/services/MBTA_Rapid_Transit_Stop_Distances/Feature" +
         "Server/0/query?outFields=*&where=1%3D1&f=geojson")
 
-    # & save JSON load in a temp variable
-    API_data = json.loads(response.text)
-
     # return the JSON load
-    return (API_data)
+    return (json.loads(response.text))
 
 
 # function to call ridership API and pass information in JSON format
 def get_ridership_response():
     # get the response from the third-party API
-    response = requests.get("https://services1.arcgis.com/ceiitspzDAHrdGO1/" +
-                            "arcgis/rest/services/Rail_Ridership_by_Season_Time_Period_" +
-                            "RouteLine_and_Stop/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson")
-    # & save JSON load in a temp variable
-    API_data = json.loads(response.text)
+    response = requests.get(
+        "https://services1.arcgis.com/ceiitspzDAHrdGO1/" +
+        "arcgis/rest/services/Rail_Ridership_by_Season_Time_Period_" +
+        "RouteLine_and_Stop/FeatureServer/0/query?outFields=*&where=" +
+        "1%3D1&f=geojson")
 
     # return the JSON load
-    return (API_data)
+    return (json.loads(response.text))
 
 
 # function to receive ridership JSON and save relevant data in array
@@ -44,7 +41,6 @@ def clean_ridership_data(API_data):
                         "color": station['properties']['route_id'],
                         "average_flow": station['properties']['average_flow']}
         ridership.append(ridership_details)
-        print(ridership_details)
 
     # return the array
     return ridership
@@ -71,8 +67,17 @@ def clean_station_data(API_data):
 
 # helper function to print the MBTA list
 def print_array(arr):
+    # check the station here
+    # check = 'Northeastern University'
+
     # iterate over the list
     for station in arr:
+
+        # this is just here to check
+        # if station['source'] == check or station['destination'] == check:
+            # print each station
+            # print(station)
+
         # print each station
         print(station)
 
@@ -80,7 +85,7 @@ def print_array(arr):
 # main function to run the program
 if __name__ == '__main__':
     ridership = clean_ridership_data(get_ridership_response())
-    print_array(ridership)
+    #print_array(ridership)
 
     MBTA = clean_station_data(get_station_response())
     print_array(MBTA)
