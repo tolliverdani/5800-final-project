@@ -4,25 +4,32 @@ import requests
 import json
 
 
+# node class to store the MBTA station information
 class Node:
 
+    # constructor that takes in station name and line color
     def __init__(self, station: str, color: str):
         self.station = station
         self.color = color
 
+    # repr that returns the station name
     def __repr__(self):
         return self.station
 
 
+# graph class to store the graph and graph functions
 class Graph:
 
+    # constructor with no params and creates a dict
     def __init__(self):
         self.graph = defaultdict(dict)
 
+    # function to create an edge between nodes & stores the weight
     def addEdge(self, source_node: Node(str, str), dest_node: Node(str, str), weight: int):
         self.graph[source_node][dest_node] = weight
         self.graph[dest_node][source_node] = weight
 
+    # function to print the graph
     def print(self):
         for vertex in self.graph.items():
             print(str(vertex))
@@ -30,6 +37,7 @@ class Graph:
 
 # function to call MBTA station API and pass information in JSON format
 def get_station_response():
+
     # get the response from the third-party API
     response = requests.get(
         "https://services1.arcgis.com/ceiitspzDAHrdGO1/arcgis/" +
@@ -42,6 +50,7 @@ def get_station_response():
 
 # function to call ridership API and pass information in JSON format
 def get_ridership_response():
+
     # get the response from the third-party API
     response = requests.get(
         "https://services1.arcgis.com/ceiitspzDAHrdGO1/" +
@@ -55,6 +64,7 @@ def get_ridership_response():
 
 # function to receive ridership JSON and save relevant data in array
 def clean_ridership_data(API_data):
+
     # initialize an empty array
     ridership = []
 
@@ -74,6 +84,7 @@ def clean_ridership_data(API_data):
 
 # function to receive MBTA station JSON and save relevant data in array
 def clean_station_data(API_data):
+
     # initialize an empty array
     MBTA = []
 
@@ -93,6 +104,7 @@ def clean_station_data(API_data):
 
 # helper function to print the MBTA list
 def print_array(arr):
+
     # check the station here
     # check = 'Northeastern University'
 
@@ -109,6 +121,7 @@ def print_array(arr):
 
 # main function to run the program
 if __name__ == '__main__':
+
     #ridership = clean_ridership_data(get_ridership_response())
     # print_array(ridership)
 
