@@ -128,6 +128,7 @@ if __name__ == '__main__':
     #MBTA = clean_station_data(get_station_response())
     #print_array(MBTA)
 
+    # TODO: need to push the data from the API into the graph instead of this
     northeastern = Node("Northeastern", "Green")
     copley = Node("Copley", "Green")
 
