@@ -1,5 +1,31 @@
+from collections import defaultdict
+
 import requests
 import json
+
+
+class Node:
+
+    def __init__(self, station: str, color: str):
+        self.station = station
+        self.color = color
+
+    def __repr__(self):
+        return self.station
+
+
+class Graph:
+
+    def __init__(self):
+        self.graph = defaultdict(dict)
+
+    def addEdge(self, source_node: Node(str, str), dest_node: Node(str, str), weight: int):
+        self.graph[source_node][dest_node] = weight
+        self.graph[dest_node][source_node] = weight
+
+    def print(self):
+        for vertex in self.graph.items():
+            print(str(vertex))
 
 
 # function to call MBTA station API and pass information in JSON format
@@ -36,10 +62,10 @@ def clean_ridership_data(API_data):
     # what's needed for our graph
     for station in API_data['features']:
         ridership_details = {"station": station['properties']['stop_name'],
-                        "day_type": station['properties']['day_type_name'],
-                        "time_period": station['properties']['time_period_name'],
-                        "color": station['properties']['route_id'],
-                        "average_flow": station['properties']['average_flow']}
+                             "day_type": station['properties']['day_type_name'],
+                             "time_period": station['properties']['time_period_name'],
+                             "color": station['properties']['route_id'],
+                             "average_flow": station['properties']['average_flow']}
         ridership.append(ridership_details)
 
     # return the array
@@ -72,11 +98,10 @@ def print_array(arr):
 
     # iterate over the list
     for station in arr:
-
         # this is just here to check
         # if station['source'] == check or station['destination'] == check:
-            # print each station
-            # print(station)
+        # print each station
+        # print(station)
 
         # print each station
         print(station)
@@ -84,8 +109,16 @@ def print_array(arr):
 
 # main function to run the program
 if __name__ == '__main__':
-    ridership = clean_ridership_data(get_ridership_response())
-    #print_array(ridership)
+    #ridership = clean_ridership_data(get_ridership_response())
+    # print_array(ridership)
 
-    MBTA = clean_station_data(get_station_response())
-    print_array(MBTA)
+    #MBTA = clean_station_data(get_station_response())
+    #print_array(MBTA)
+
+    northeastern = Node("Northeastern", "Green")
+    copley = Node("Copley", "Green")
+
+    g = Graph()
+    g.addEdge(northeastern, copley, 100)
+
+    g.print()
