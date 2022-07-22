@@ -15,4 +15,3 @@ class Node:
     # repr that returns the station name
     def __repr__(self):
         return self.station  # + ", " + self.color
-

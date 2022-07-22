@@ -37,7 +37,6 @@ class Graph:
         self.graph[source_node][dest_node] = weight
         self.graph[dest_node][source_node] = weight
 
-
     # function to print the graph
     def print(self):
         for vertex in self.graph.items():
