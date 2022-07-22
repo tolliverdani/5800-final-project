@@ -14,7 +14,7 @@ class Node:
 
     # repr that returns the station name
     def __repr__(self):
-        return self.station
+        return self.station + ", " + self.color
 
 
 # graph class to store the graph and graph functions
@@ -23,6 +23,11 @@ class Graph:
     # constructor with no params and creates a dict
     def __init__(self):
         self.graph = defaultdict(dict)
+
+    # function to add a node
+    def addNode(self, node: Node(str, str)):
+        if not self.graph[node]:
+            self.graph[node]
 
     # function to create an edge between nodes & stores the weight
     def addEdge(self, source_node: Node(str, str), dest_node: Node(str, str), weight: int):
@@ -83,6 +88,21 @@ def clean_ridership_data(API_data):
 
 
 # function to receive MBTA station JSON and save relevant data in array
+def graph_station_data(API_data):
+    # initialize the graph
+    g = Graph()
+
+    # loop through the API data and only save
+    # what's needed for our graph
+    for station in API_data['features']:
+        source_node = Node(station['properties']['from_station_name'], station['properties']['route_id'])
+        g.addNode(source_node)
+
+    # return the array
+    return g
+
+
+# function to receive MBTA station JSON and save relevant data in array
 def clean_station_data(API_data):
 
     # initialize an empty array
@@ -91,6 +111,7 @@ def clean_station_data(API_data):
     # loop through the API data and only save
     # what's needed for our graph
     for station in API_data['features']:
+
         MBTA_details = {"id": station['id'],
                         "source": station['properties']['from_station_name'],
                         "destination": station['properties']['to_station_name'],
@@ -125,14 +146,16 @@ if __name__ == '__main__':
     #ridership = clean_ridership_data(get_ridership_response())
     # print_array(ridership)
 
-    #MBTA = clean_station_data(get_station_response())
+    MBTA = graph_station_data(get_station_response())
+    MBTA.print()
     #print_array(MBTA)
 
     # TODO: need to push the data from the API into the graph instead of this
-    northeastern = Node("Northeastern", "Green")
-    copley = Node("Copley", "Green")
+    #northeastern = Node("Northeastern", "Green")
+    #copley = Node("Copley", "Green")
 
-    g = Graph()
-    g.addEdge(northeastern, copley, 100)
+    #g = Graph()
 
-    g.print()
+    #g.addEdge(northeastern, copley, 100)
+
+    #g.print()
