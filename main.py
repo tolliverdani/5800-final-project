@@ -3,97 +3,45 @@ from collections import defaultdict
 import requests
 import json
 
+# importing class files
+import Node
+import Graph
 
-# node class to store the MBTA station information
-class Node:
+import API
 
-    # constructor that takes in station name and line color
-    def __init__(self, station: str, color: str):
-        self.station = station
-        self.color = color
-
-    # repr that returns the station name
-    def __repr__(self):
-        return self.station + ", " + self.color
+MBTA = Graph.Graph()
 
 
-# graph class to store the graph and graph functions
-class Graph:
-
-    # constructor with no params and creates a dict
-    def __init__(self):
-        self.graph = defaultdict(dict)
-
-    # function to add a node
-    def addNode(self, node: Node(str, str)):
-        if not self.graph[node]:
-            self.graph[node]
-
-    # function to create an edge between nodes & stores the weight
-    def addEdge(self, source_node: Node(str, str), dest_node: Node(str, str), weight: int):
-        self.graph[source_node][dest_node] = weight
-        self.graph[dest_node][source_node] = weight
-
-    # function to print the graph
-    def print(self):
-        for vertex in self.graph.items():
-            print(str(vertex))
-
-
-MBTA = Graph()
-
-
-# function to call MBTA station API and pass information in JSON format
-def get_station_response():
-    # get the response from the third-party API
-    response = requests.get(
-        "https://services1.arcgis.com/ceiitspzDAHrdGO1/arcgis/" +
-        "rest/services/MBTA_Rapid_Transit_Stop_Distances/Feature" +
-        "Server/0/query?outFields=*&where=1%3D1&f=geojson")
-
-    # return the JSON load
-    return (json.loads(response.text))
-
-
-# function to call ridership API and pass information in JSON format
-def get_ridership_response():
-    # get the response from the third-party API
-    response = requests.get(
-        "https://services1.arcgis.com/ceiitspzDAHrdGO1/" +
-        "arcgis/rest/services/Rail_Ridership_by_Season_Time_Period_" +
-        "RouteLine_and_Stop/FeatureServer/0/query?outFields=*&where=" +
-        "1%3D1&f=geojson")
-
-    # return the JSON load
-    return (json.loads(response.text))
-
-
-# function to receive MBTA station JSON and save relevant data in array - O(n)
-def graph_station_data(API_data):
+# function to add station nodes to graph - O(n + k)
+def add_nodes_to_graph(data):
     # loop through the API data and
     # save the nodes in the graph
-    for station in API_data['features']:
-        # adding all of the nodes
-        source_node = Node(
+    for station in data['features']:
+        # initializing a node
+        node = Node.Node(
             station['properties']['from_station_name'],  # station name
             station['properties']['route_id']  # line color
         )
-        MBTA.addNode(source_node)
+        # & saving it to the graph
+        MBTA.addNode(node)
 
 
-def mapGraph(API_data):
+# function to add edges to graph - O(n + k)
+def add_edges_to_graph(data):
     # loop through the API data and
-    # save the nodes in the graph
-    for station in API_data['features']:
-        source_node = Node(
+    # save the edges in the graph
+    for station in data['features']:
+        # initializing the source node
+        source_node = Node.Node(
             station['properties']['from_station_name'],  # station name
             station['properties']['route_id']  # line color
         )
-        dest_node = Node(
+
+        # initializing the dest node
+        dest_node = Node.Node(
             station['properties']['to_station_name'],  # station name
             station['properties']['route_id']  # line color
         )
-        #print("source: " + str(source_node) + " -> dest: " + str(dest_node))
 
         # adding the edge between nodes
         MBTA.addEdge(source_node,
@@ -102,54 +50,14 @@ def mapGraph(API_data):
                      )
 
 
-# function to receive ridership JSON and save relevant data in array
-def preview_ridership_data(API_data):
-    # initialize an empty array
-    ridership = []
-
-    # loop through the API data and only get
-    # what's needed for our graph
-    for station in API_data['features']:
-        ridership_details = {"station": station['properties']['stop_name'],
-                             "day_type": station['properties']['day_type_name'],
-                             "time_period": station['properties']['time_period_name'],
-                             "color": station['properties']['route_id'],
-                             "average_flow": station['properties']['average_flow']}
-        ridership.append(ridership_details)
-
-    # return the array
-    return ridership
-
-
-# function to receive MBTA station JSON and save relevant data in array
-def preview_station_data(API_data):
-    # initialize an empty array
-    MBTA = []
-
-    # loop through the API data and only get
-    # what's needed for our graph
-    for station in API_data['features']:
-        MBTA_details = {"id": station['id'],
-                        "source": station['properties']['from_station_name'],
-                        "destination": station['properties']['to_station_name'],
-                        "color": station['properties']['route_id'],
-                        "distance": station['properties']['distance_between_miles']}
-        MBTA.append(MBTA_details)
-
-    # return the array
-    return MBTA
-
-
-# helper function to print the MBTA list
-def print_array(arr):
-    # iterate over the list
-    for station in arr:
-        # print each station
-        print(station)
-
-
 # main function to run the program
 if __name__ == '__main__':
-    graph_station_data(get_station_response())
-    mapGraph(get_station_response())
+    # getting the station data
+    data = API.get_station_response()
+
+    # graphing functions
+    add_nodes_to_graph(data)
+    add_edges_to_graph(data)
+
+    # printing to see output
     MBTA.print()
