@@ -40,9 +40,11 @@ class Graph:
             print(str(vertex))
 
 
+MBTA = Graph()
+
+
 # function to call MBTA station API and pass information in JSON format
 def get_station_response():
-
     # get the response from the third-party API
     response = requests.get(
         "https://services1.arcgis.com/ceiitspzDAHrdGO1/arcgis/" +
@@ -55,7 +57,6 @@ def get_station_response():
 
 # function to call ridership API and pass information in JSON format
 def get_ridership_response():
-
     # get the response from the third-party API
     response = requests.get(
         "https://services1.arcgis.com/ceiitspzDAHrdGO1/" +
@@ -67,13 +68,46 @@ def get_ridership_response():
     return (json.loads(response.text))
 
 
-# function to receive ridership JSON and save relevant data in array
-def clean_ridership_data(API_data):
+# function to receive MBTA station JSON and save relevant data in array - O(n)
+def graph_station_data(API_data):
+    # loop through the API data and
+    # save the nodes in the graph
+    for station in API_data['features']:
+        # adding all of the nodes
+        source_node = Node(
+            station['properties']['from_station_name'],  # station name
+            station['properties']['route_id']  # line color
+        )
+        MBTA.addNode(source_node)
 
+
+def mapGraph(API_data):
+    # loop through the API data and
+    # save the nodes in the graph
+    for station in API_data['features']:
+        source_node = Node(
+            station['properties']['from_station_name'],  # station name
+            station['properties']['route_id']  # line color
+        )
+        dest_node = Node(
+            station['properties']['to_station_name'],  # station name
+            station['properties']['route_id']  # line color
+        )
+        #print("source: " + str(source_node) + " -> dest: " + str(dest_node))
+
+        # adding the edge between nodes
+        MBTA.addEdge(source_node,
+                     dest_node,
+                     station['properties']['distance_between_miles']
+                     )
+
+
+# function to receive ridership JSON and save relevant data in array
+def preview_ridership_data(API_data):
     # initialize an empty array
     ridership = []
 
-    # loop through the API data and only save
+    # loop through the API data and only get
     # what's needed for our graph
     for station in API_data['features']:
         ridership_details = {"station": station['properties']['stop_name'],
@@ -88,30 +122,13 @@ def clean_ridership_data(API_data):
 
 
 # function to receive MBTA station JSON and save relevant data in array
-def graph_station_data(API_data):
-    # initialize the graph
-    g = Graph()
-
-    # loop through the API data and only save
-    # what's needed for our graph
-    for station in API_data['features']:
-        source_node = Node(station['properties']['from_station_name'], station['properties']['route_id'])
-        g.addNode(source_node)
-
-    # return the array
-    return g
-
-
-# function to receive MBTA station JSON and save relevant data in array
-def clean_station_data(API_data):
-
+def preview_station_data(API_data):
     # initialize an empty array
     MBTA = []
 
-    # loop through the API data and only save
+    # loop through the API data and only get
     # what's needed for our graph
     for station in API_data['features']:
-
         MBTA_details = {"id": station['id'],
                         "source": station['properties']['from_station_name'],
                         "destination": station['properties']['to_station_name'],
@@ -125,37 +142,14 @@ def clean_station_data(API_data):
 
 # helper function to print the MBTA list
 def print_array(arr):
-
-    # check the station here
-    # check = 'Northeastern University'
-
     # iterate over the list
     for station in arr:
-        # this is just here to check
-        # if station['source'] == check or station['destination'] == check:
-        # print each station
-        # print(station)
-
         # print each station
         print(station)
 
 
 # main function to run the program
 if __name__ == '__main__':
-
-    #ridership = clean_ridership_data(get_ridership_response())
-    # print_array(ridership)
-
-    MBTA = graph_station_data(get_station_response())
+    graph_station_data(get_station_response())
+    mapGraph(get_station_response())
     MBTA.print()
-    #print_array(MBTA)
-
-    # TODO: need to push the data from the API into the graph instead of this
-    #northeastern = Node("Northeastern", "Green")
-    #copley = Node("Copley", "Green")
-
-    #g = Graph()
-
-    #g.addEdge(northeastern, copley, 100)
-
-    #g.print()
