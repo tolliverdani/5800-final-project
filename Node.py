@@ -5,6 +5,13 @@ class Node:
     def __init__(self, station: str):
         self.station = station
         self.color = ""
+        self.edges = {}
+
+    def getStation(self):
+        return self.station
+
+    def addEdge(self, station: str, weight: int):
+        self.edges[station] = weight
 
     def addColor(self, color: str):
         self.color = color
@@ -14,4 +21,6 @@ class Node:
 
     # repr that returns the station name
     def __repr__(self):
-        return self.station + ", " + self.color
+        return self.station \
+               + ", " + self.color \
+               + ", " + str(self.edges)
