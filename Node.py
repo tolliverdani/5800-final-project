@@ -6,12 +6,12 @@ class Node:
         self.station = station
         self.color = ""
 
-    def __getitem__(self, item):
-        return item
-
     def addColor(self, color: str):
         self.color = color
 
+    def __getitem__(self):
+        return self
+
     # repr that returns the station name
     def __repr__(self):
-        return self.station  # + ", " + self.color
+        return self.station + ", " + self.color
