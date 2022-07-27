@@ -231,21 +231,21 @@ Green C,North Station,Cleveland Circle,place-bcnwa,Washington Square,place-clmnl
 Green C,Cleveland Circle,North Station,place-clmnl,Cleveland Circle,place-bcnwa,Washington Square,0.763,0.763,230
 Green C,Cleveland Circle,North Station,place-bcnwa,Washington Square,place-cool,Coolidge Corner,0.749,1.512,231
 Green C,Cleveland Circle,North Station,place-cool,Coolidge Corner,place-smary,Saint Mary Street,0.756,2.268,232
-1 Bus,Nubian,Harvard,place-masta,Massachusetts Ave.,place-symcl,Symphony,0.1,,233
-1 Bus,Harvard,Nubian,place-symcl,Symphony,place-masta,Massachusetts Ave.,0.1,,234
-1 Bus,Nubian,Harvard,place-symcl,Symphony,place-hymnl,Hynes Convention Center,0.4,,235
-1 Bus,Harvard,Nubian,place-hymnl,Hynes Convention Center,place-symcl,Symphony,0.4,,236
-1 Bus,Nubian,Harvard,place-symcl,Symphony,place-cntsq,Central,1.4,,237
-1 Bus,Harvard,Nubian,place-cntsq,Central,place-symcl,Symphony,1.4,,238
-1 Bus,Nubian,Harvard,place-cntsq,Central,place-harsq,Harvard,1,,239
-1 Bus,Harvard,Nubian,place-harsq,Harvard,place-cntsq,Central,1,,240
-47 Bus,Harvard,Nubian,place-brdwy,Broadway,place-rugg,Ruggles,2.6,,241
-47 Bus,Nubian,Harvard,place-rugg,Ruggles,place-brdwy,Broadway,2.6,,242
-47 Bus,Harvard,Nubian,place-rugg,Ruggles,place-fenwy,Fenway,1.2,,243
-47 Bus,Nubian,Harvard,place-fenwy,Fenway,place-rugg,Ruggles,1.2,,244
-47 Bus,Harvard,Nubian,place-fenwy,Fenway,place-cntsq,Central,1.8,,245
-47 Bus,Nubian,Harvard,place-cntsq,Central,place-fenwy,Fenway,1.8,,246
-66 Bus,Nubian,Harvard,place-brmnl,Brigham Circle,place-cool,Coolidge Corner,2,,247
-66 Bus,Harvard,Nubian,place-cool,Coolidge Corner,place-brmnl,Brigham Circle,2,,248
-66 Bus,Nubian,Harvard,place-cool,Coolidge Corner,place-harsq,Harvard,3.1,,249
-66 Bus,Harvard,Nubian,place-harsq,Harvard,place-cool,Coolidge Corner,3.1,,250
+1 Bus,Nubian,Harvard,place-masta,Massachusetts Ave.,place-symcl,Symphony,0.1,0.1,233
+1 Bus,Nubian,Harvard,place-symcl,Symphony,place-hymnl,Hynes Convention Center,0.4,0.5,234
+1 Bus,Nubian,Harvard,place-symcl,place-hymnl,Hynes Convention Center,Central,1.4,1.9,235
+1 Bus,Nubian,Harvard,place-cntsq,Central,place-harsq,Harvard,1,2.9,236
+1 Bus,Harvard,Nubian,place-harsq,Harvard,place-cntsq,Central,1,1,237
+1 Bus,Harvard,Nubian,place-cntsq,Central,place-hymnl,Hynes Convention Center,1.4,2.4,238
+1 Bus,Harvard,Nubian,place-hymnl,Hynes Convention Center,place-symcl,Symphony,0.4,2.8,239
+1 Bus,Harvard,Nubian,place-symcl,Symphony,place-masta,Massachusetts Ave.,0.1,2.9,240
+47 Bus,Harvard,Nubian,place-brdwy,Broadway,place-rugg,Ruggles,2.6,2.6,241
+47 Bus,Harvard,Nubian,place-rugg,Ruggles,place-fenwy,Fenway,1.2,3.8,242
+47 Bus,Harvard,Nubian,place-fenwy,Fenway,place-cntsq,Central,1.8,5.6,243
+47 Bus,Nubian,Harvard,place-cntsq,Central,place-fenwy,Fenway,1.8,5.6,244
+47 Bus,Nubian,Harvard,place-fenwy,Fenway,place-rugg,Ruggles,1.2,3.8,245
+47 Bus,Nubian,Harvard,place-rugg,Ruggles,place-brdwy,Broadway,2.6,2.6,246
+66 Bus,Harvard,Nubian,place-cool,Coolidge Corner,place-brmnl,Brigham Circle,2,2,247
+66 Bus,Harvard,Nubian,place-harsq,Harvard,place-cool,Coolidge Corner,3.1,5.1,248
+66 Bus,Nubian,Harvard,place-cool,Coolidge Corner,place-harsq,Harvard,3.1,5.1,249
+66 Bus,Nubian,Harvard,place-brmnl,Brigham Circle,place-cool,Coolidge Corner,2,2,250
