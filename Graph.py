@@ -37,28 +37,31 @@ class Graph:
     def getDistance(self, source, dest):
         return self.graph[source].edges[dest]
 
-    # TODO: this is just some random chunks of code mushed
-    #  together and is not working
+    # TODO: below is not a working function - right now it
+    #  just iterates over the nodes
+
     # function to find the shortest path from one
     # station to another
     def findShortestPath(self, source, dest):
         visited = []
         queue = [[source]]
+        index = 0
 
-        while queue:
+        # to prevent infinite looping
+        while index < len(self.graph):
 
-            # look at the node
+            # iterate over the nodes and their edges
             for node in self.graph:
                 if node not in visited:
+                    index += 1
                     visited.append(node)
 
-                # look at its edges
-                for edge in self.getEdges(node):
-                    """print("from "
-                          + node + " to "
-                          + edge + " "
-                          + str(self.getDistance(node, edge)))"""
-
-
+                    # look at its edges & distances
+                    for edge in self.getEdges(node):
+                        # just printing the data for now
+                        print("from "
+                              + node + " to "
+                              + edge + " "
+                              + str(self.getDistance(node, edge)))
 
         return visited

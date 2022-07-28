@@ -46,6 +46,6 @@ if __name__ == '__main__':
     print(MBTA.getStation('Alewife'))
     print(MBTA.getStation('Maverick'))
 
-    MBTA.findShortestPath('Alewife', 'Maverick')
+    print(MBTA.findShortestPath('Alewife', 'Maverick'))
     # final print of graph
     # print(MBTA.graph)
