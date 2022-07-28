@@ -1,21 +1,19 @@
 import csv
-import json
+
+# TODO: I think this isn't as useful as the API because it iterates
+#  over the entire line and their destinations instead of being
+#  station to station figures. LMK.
 
 
 # function to call MBTA station API and pass information in JSON format
 def get_station_response():
     MBTA = []
 
-    with open('MBTA_Distances.csv', mode='r') as file:
-        csvFile = csv.reader(file)
+    with open('MBTA_Distances.csv', mode='r') as CSVfile:
+        file = csv.reader(CSVfile)
 
-        for lines in csvFile:
-            MBTA_details = {"id": lines[4],
-                            "source": lines[4],
-                            "destination": lines[6],
-                            "color": lines[0],
-                            "distance": lines[7]}
-            MBTA.append(MBTA_details)
+        for lines in file:
+            MBTA.append(lines)
 
     # return the array
     return MBTA
@@ -26,7 +24,7 @@ def print_array(arr):
     # iterate over the list
     for station in arr:
         # print each station
-        print("\n" + str(station))
+        print(str(station))
 
 
 # main function to run the program
