@@ -7,10 +7,10 @@ MBTA = Graph.Graph()
 
 
 # function to add station nodes to graph - O(n + k)
-def add_nodes_to_graph(station_data):
+def add_nodes_to_graph(data):
     # loop through the API data and
     # save the nodes in the graph
-    for station in station_data['features']:
+    for station in data['features']:
         # initializing a node
         source = Node.Node(station['properties']['from_station_name'])
         source.addColor(station['properties']['route_id'])
@@ -19,10 +19,10 @@ def add_nodes_to_graph(station_data):
         MBTA.addNode(source)
 
 
-def add_edges_to_nodes(station_data):
+def add_edges_to_nodes(data):
     # loop through the API data and
     # save the edges in the nodes
-    for station in station_data['features']:
+    for station in data['features']:
         # initializing the weight
         weight = station['properties']['distance_between_miles']
 
@@ -43,8 +43,9 @@ if __name__ == '__main__':
     add_nodes_to_graph(station_data)
     add_edges_to_nodes(station_data)
 
-    # to check graph
-    print(MBTA.getStation("Porter"))
+    print(MBTA.getStation('Alewife'))
+    print(MBTA.getStation('Maverick'))
 
+    MBTA.findShortestPath('Alewife', 'Maverick')
     # final print of graph
-    print(MBTA.graph)
+    # print(MBTA.graph)

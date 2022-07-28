@@ -30,3 +30,35 @@ class Graph:
     # function to return specific station
     def getStation(self, station):
         return self.graph[station]
+
+    def getEdges(self, station):
+        return self.graph[station].edges
+
+    def getDistance(self, source, dest):
+        return self.graph[source].edges[dest]
+
+    # TODO: this is just some random chunks of code mushed
+    #  together and is not working
+    # function to find the shortest path from one
+    # station to another
+    def findShortestPath(self, source, dest):
+        visited = []
+        queue = [[source]]
+
+        while queue:
+
+            # look at the node
+            for node in self.graph:
+                if node not in visited:
+                    visited.append(node)
+
+                # look at its edges
+                for edge in self.getEdges(node):
+                    """print("from "
+                          + node + " to "
+                          + edge + " "
+                          + str(self.getDistance(node, edge)))"""
+
+
+
+        return visited
