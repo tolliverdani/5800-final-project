@@ -111,7 +111,8 @@ class Graph:
             
         
 
-
+    # TODO: Rather than doing an outer loop, a min_heap would be more efficient
+    #       however, I don't see a min heap in Python. Java FTW
     def nate_shortest_path(self, source):
 
         distance_dict = self.create_distance_dictionary(source)
