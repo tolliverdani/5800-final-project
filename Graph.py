@@ -98,8 +98,17 @@ class Graph:
                 break
         path.append(prev)
 
+        color = None
         for station in reversed(path):
-            print(station, sep="->")
+            if ( self.graph[station].color != color ):
+                if ( station == source ):
+                    print("*** Start on " + self.graph[station].color + " ***")
+                else :
+                    print("*** Transfer to " + self.graph[station].color + " ***")
+            print(station)
+            color = self.graph[station].color
+
+            
         
 
 

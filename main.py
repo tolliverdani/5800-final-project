@@ -46,11 +46,11 @@ if __name__ == '__main__':
     # print(MBTA.getStation('Alewife'))
     # print(MBTA.getStation('Maverick'))
 
-    START = "Northeastern University"
-    END = "Fenway"
+    START = "Alewife"
+    END = "Northeastern University"
     # print(MBTA.findShortestPath('Alewife', 'Maverick'))
     distances = MBTA.nate_shortest_path(START)
-    print("Total Distance from " + START + " to " + END + " = " + str(distances[END]["weight"]) + " miles.")
+    print("Total Distance from " + START + " to " + END + " = " + str(round(distances[END]["weight"],2)) + " miles.")
     MBTA.print_path(START, END, distances)
 
     # final print of graph
