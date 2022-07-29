@@ -1,11 +1,13 @@
 # importing class files
-import Node
-import Graph
-import API
+from components import Graph, Node
+from data import API
+from model.CostAnalysis import *
 
 MBTA = Graph.Graph()
 
 
+# TODO: I think we should take these out and put into
+#  another doc, maybe a controller?
 # function to add station nodes to graph - O(n + k)
 def add_nodes_to_graph(data):
     # loop through the API data and
@@ -43,15 +45,31 @@ if __name__ == '__main__':
     add_nodes_to_graph(station_data)
     add_edges_to_nodes(station_data)
 
-    # print(MBTA.getStation('Alewife'))
-    # print(MBTA.getStation('Maverick'))
+    # get inputs from the user
+    # START = input("Enter starting station: ")
+    # END = input("Enter ending station: ")
+    START = "Downtown Crossing"
+    END = "Maverick"
+    print(MBTA.getStation(START))
 
-    START = "Alewife"
-    END = "Northeastern University"
-    # print(MBTA.findShortestPath('Alewife', 'Maverick'))
-    distances = MBTA.nate_shortest_path(START)
-    print("Total Distance from " + START + " to " + END + " = " + str(round(distances[END]["weight"],2)) + " miles.")
+    # TODO: should we refactor this into the models folder?
+    # distances is a hashmap of all stations from the start point
+    distances = MBTA.shortest_path(START)
+    print(distances)
+
+    # gathers the path from the start to end
     MBTA.print_path(START, END, distances)
+    print("Total Distance from " + START + " to " + END + " = " + str(round(distances[END]["weight"], 2)) + " miles.")
 
-    # final print of graph
-    # print(MBTA.graph)
+    # distance calcs go here
+    distance = round(distances[END]["weight"], 2)
+    cost_per_mile = calculateCost(distance)
+    print(2.70 / distance)
+    print(cost_per_mile)
+
+    # TODO: should we use a plot for the averages for each line?
+    # https://www.geeksforgeeks.org/graph-plotting-in-python-set-1/
+    arr = calculateAllCosts(distances)
+    print(arr)
+    print(calculateAvgCost(distances))
+    plotCalc(arr)

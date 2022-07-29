@@ -1,0 +1,251 @@
+﻿route_id,origin,destination,from_station_id,from_station_name,to_station_id,to_station_name,distance_between_miles,cumulative_dist_miles,ObjectId
+Red,Alewife,Ashmont,place-alfcl,Alewife,place-davis,Davis,0.96,0.96,1
+Red,Alewife,Ashmont,place-davis,Davis,place-portr,Porter,0.66,1.62,2
+Red,Alewife,Ashmont,place-portr,Porter,place-harsq,Harvard,0.99,2.61,3
+Red,Alewife,Ashmont,place-harsq,Harvard,place-cntsq,Central,1.08,3.69,4
+Red,Alewife,Ashmont,place-cntsq,Central,place-knncl,Kendall/MIT,0.95,4.64,5
+Red,Alewife,Ashmont,place-knncl,Kendall/MIT,place-chmnl,Charles/MGH,0.71,5.35,6
+Red,Alewife,Ashmont,place-chmnl,Charles/MGH,place-pktrm,Park Street,0.56,5.91,7
+Red,Alewife,Ashmont,place-pktrm,Park Street,place-dwnxg,Downtown Crossing,0.22,6.13,8
+Red,Alewife,Ashmont,place-dwnxg,Downtown Crossing,place-sstat,South Station,0.27,6.4,9
+Red,Alewife,Ashmont,place-sstat,South Station,place-brdwy,Broadway,0.82,7.22,10
+Red,Alewife,Ashmont,place-brdwy,Broadway,place-andrw,Andrew,0.84,8.06,11
+Red,Alewife,Ashmont,place-andrw,Andrew,place-jfk,JFK/UMass,0.74,8.8,12
+Red,Alewife,Ashmont,place-jfk,JFK/UMass,place-shmnl,Savin Hill,0.7,9.5,13
+Red,Alewife,Ashmont,place-shmnl,Savin Hill,place-fldcr,Fields Corner,1,10.5,14
+Red,Alewife,Ashmont,place-fldcr,Fields Corner,place-smmnl,Shawmut,0.59,11.09,15
+Red,Alewife,Ashmont,place-smmnl,Shawmut,place-asmnl,Ashmont,0.62,11.71,16
+Red,Alewife,Braintree,place-alfcl,Alewife,place-davis,Davis,0.96,0.96,17
+Red,Alewife,Braintree,place-davis,Davis,place-portr,Porter,0.66,1.62,18
+Red,Alewife,Braintree,place-portr,Porter,place-harsq,Harvard,0.99,2.61,19
+Red,Alewife,Braintree,place-harsq,Harvard,place-cntsq,Central,1.08,3.69,20
+Red,Alewife,Braintree,place-cntsq,Central,place-knncl,Kendall/MIT,0.95,4.64,21
+Red,Alewife,Braintree,place-knncl,Kendall/MIT,place-chmnl,Charles/MGH,0.71,5.35,22
+Red,Alewife,Braintree,place-chmnl,Charles/MGH,place-pktrm,Park Street,0.56,5.91,23
+Red,Alewife,Braintree,place-pktrm,Park Street,place-dwnxg,Downtown Crossing,0.22,6.13,24
+Red,Alewife,Braintree,place-dwnxg,Downtown Crossing,place-sstat,South Station,0.27,6.4,25
+Red,Alewife,Braintree,place-sstat,South Station,place-brdwy,Broadway,0.82,7.22,26
+Red,Alewife,Braintree,place-brdwy,Broadway,place-andrw,Andrew,0.84,8.06,27
+Red,Alewife,Braintree,place-andrw,Andrew,place-jfk,JFK/UMass,0.78,8.84,28
+Red,Alewife,Braintree,place-jfk,JFK/UMass,place-nqncy,North Quincy,3.53,12.37,29
+Red,Alewife,Braintree,place-nqncy,North Quincy,place-wlsta,Wollaston,0.8,13.17,30
+Red,Alewife,Braintree,place-wlsta,Wollaston,place-qnctr,Quincy Center,1.28,14.45,31
+Red,Alewife,Braintree,place-qnctr,Quincy Center,place-qamnl,Quincy Adams,1.33,15.78,32
+Red,Alewife,Braintree,place-qamnl,Quincy Adams,place-brntn,Braintree,1.86,17.64,33
+Red,Braintree,Alewife,place-brntn,Braintree,place-qamnl,Quincy Adams,1.86,1.86,34
+Red,Braintree,Alewife,place-qamnl,Quincy Adams,place-qnctr,Quincy Center,1.33,3.19,35
+Red,Braintree,Alewife,place-qnctr,Quincy Center,place-wlsta,Wollaston,1.28,4.47,36
+Red,Braintree,Alewife,place-wlsta,Wollaston,place-nqncy,North Quincy,0.8,5.27,37
+Red,Braintree,Alewife,place-nqncy,North Quincy,place-jfk,JFK/UMass,3.53,8.8,38
+Red,Braintree,Alewife,place-jfk,JFK/UMass,place-andrw,Andrew,0.78,9.58,39
+Red,Braintree,Alewife,place-andrw,Andrew,place-brdwy,Broadway,0.85,10.43,40
+Red,Braintree,Alewife,place-brdwy,Broadway,place-sstat,South Station,0.82,11.25,41
+Red,Braintree,Alewife,place-sstat,South Station,place-dwnxg,Downtown Crossing,0.26,11.51,42
+Red,Braintree,Alewife,place-dwnxg,Downtown Crossing,place-pktrm,Park Street,0.23,11.74,43
+Red,Braintree,Alewife,place-pktrm,Park Street,place-chmnl,Charles/MGH,0.56,12.3,44
+Red,Braintree,Alewife,place-chmnl,Charles/MGH,place-knncl,Kendall/MIT,0.71,13.01,45
+Red,Braintree,Alewife,place-knncl,Kendall/MIT,place-cntsq,Central,0.95,13.96,46
+Red,Braintree,Alewife,place-cntsq,Central,place-harsq,Harvard,1.07,15.03,47
+Red,Braintree,Alewife,place-harsq,Harvard,place-portr,Porter,0.99,16.02,48
+Red,Braintree,Alewife,place-portr,Porter,place-davis,Davis,0.66,16.68,49
+Red,Braintree,Alewife,place-davis,Davis,place-alfcl,Alewife,0.96,17.64,50
+Red,Ashmont,Alewife,place-asmnl,Ashmont,place-smmnl,Shawmut,0.62,0.62,51
+Red,Ashmont,Alewife,place-smmnl,Shawmut,place-fldcr,Fields Corner,0.58,1.2,52
+Red,Ashmont,Alewife,place-fldcr,Fields Corner,place-shmnl,Savin Hill,1,2.2,53
+Red,Ashmont,Alewife,place-shmnl,Savin Hill,place-jfk,JFK/UMass,0.71,2.91,54
+Red,Ashmont,Alewife,place-jfk,JFK/UMass,place-andrw,Andrew,0.74,3.65,55
+Red,Ashmont,Alewife,place-andrw,Andrew,place-brdwy,Broadway,0.85,4.5,56
+Red,Ashmont,Alewife,place-brdwy,Broadway,place-sstat,South Station,0.82,5.32,57
+Red,Ashmont,Alewife,place-sstat,South Station,place-dwnxg,Downtown Crossing,0.26,5.58,58
+Green C,Cleveland Circle,North Station,place-smary,Saint Mary Street,,Beacon Junction,0.571,2.839,59
+Green C,Cleveland Circle,North Station,,Beacon Junction,place-kencl,Kenmore,0.142,2.981,60
+Green C,Cleveland Circle,North Station,place-kencl,Kenmore,place-coecl,Copley,0.907,3.888,61
+Green C,Cleveland Circle,North Station,place-coecl,Copley,place-armnl,Arlington,0.363,4.251,62
+Green C,Cleveland Circle,North Station,place-armnl,Arlington,place-boyls,Boylston,0.322,4.573,63
+Green C,Cleveland Circle,North Station,place-boyls,Boylston,place-pktrm,Park Street,0.296,4.869,64
+Green C,Cleveland Circle,North Station,place-pktrm,Park Street,place-gover,Government Center,0.257,5.126,65
+Green C,Cleveland Circle,North Station,place-gover,Government Center,place-haecl,Haymarket,0.275,5.401,66
+Green C,Cleveland Circle,North Station,place-haecl,Haymarket,place-north,North Station,0.22,5.621,67
+Green D,Government Center,Riverside,place-gover,Government Center,place-pktrm,Park Street,0.57,0.57,68
+Green D,Government Center,Riverside,place-pktrm,Park Street,place-boyls,Boylston,0.315,0.885,69
+Green D,Government Center,Riverside,place-boyls,Boylston,place-armnl,Arlington,0.318,1.203,70
+Green D,Government Center,Riverside,place-armnl,Arlington,place-coecl,Copley,0.365,1.568,71
+Green D,Government Center,Riverside,place-coecl,Copley,place-kencl,Kenmore,0.928,2.496,72
+Green D,Government Center,Riverside,place-kencl,Kenmore,,Beacon Junction,0.498,2.994,73
+Green D,Government Center,Riverside,,Beacon Junction,place-fenwy,Fenway,0.429,3.423,74
+Green D,Government Center,Riverside,place-fenwy,Fenway,place-bcnfd,Beaconsfield,2.471,5.894,75
+Green D,Government Center,Riverside,place-bcnfd,Beaconsfield,place-rsmnl,Reservoir,0.431,6.325,76
+Green D,Government Center,Riverside,place-rsmnl,Reservoir,place-eliot,Eliot,4.04,10.365,77
+Green D,Government Center,Riverside,place-eliot,Eliot,place-river,Riverside,2.225,12.59,78
+Green D,Riverside,Government Center,place-river,Riverside,place-eliot,Eliot,2.225,2.225,79
+Green D,Riverside,Government Center,place-eliot,Eliot,place-rsmnl,Reservoir,4.04,6.265,80
+Green D,Riverside,Government Center,place-rsmnl,Reservoir,place-bcnfd,Beaconsfield,0.431,6.696,81
+Green D,Riverside,Government Center,place-bcnfd,Beaconsfield,place-fenwy,Fenway,2.47,9.166,82
+Green D,Riverside,Government Center,place-fenwy,Fenway,,Beacon Junction,0.429,9.595,83
+Green D,Riverside,Government Center,,Beacon Junction,place-kencl,Kenmore,0.102,9.697,84
+Green D,Riverside,Government Center,place-kencl,Kenmore,place-hymnl,Hynes Convention Center,0.362,10.059,85
+Green D,Riverside,Government Center,place-hymnl,Hynes Convention Center,place-coecl,Copley,0.565,10.624,86
+Green D,Riverside,Government Center,place-coecl,Copley,place-armnl,Arlington,0.363,10.987,87
+Green D,Riverside,Government Center,place-armnl,Arlington,place-boyls,Boylston,0.325,11.312,88
+Green D,Riverside,Government Center,place-boyls,Boylston,place-pktrm,Park Street,0.303,11.615,89
+Green D,Riverside,Government Center,place-pktrm,Park Street,place-gover,Government Center,0.249,11.864,90
+Green E,Lechmere,Heath Street,place-lech,Lechmere,place-spmnl,Science Park,0.446,0.446,91
+Green E,Lechmere,Heath Street,place-spmnl,Science Park,place-north,North Station,0.546,0.992,92
+Green E,Lechmere,Heath Street,place-north,North Station,place-haecl,Haymarket,0.219,1.211,93
+Green E,Lechmere,Heath Street,place-haecl,Haymarket,place-gover,Government Center,0.279,1.49,94
+Green E,Lechmere,Heath Street,place-gover,Government Center,place-pktrm,Park Street,0.253,1.743,95
+Green E,Lechmere,Heath Street,place-pktrm,Park Street,place-boyls,Boylston,0.263,2.006,96
+Green E,Lechmere,Heath Street,place-boyls,Boylston,place-armnl,Arlington,0.355,2.361,97
+Green E,Lechmere,Heath Street,place-armnl,Arlington,place-coecl,Copley,0.362,2.723,98
+Green E,Lechmere,Heath Street,place-coecl,Copley,place-prmnl,Prudential,0.422,3.145,99
+Green E,Lechmere,Heath Street,place-prmnl,Prudential,place-symcl,Symphony,0.231,3.376,100
+Green E,Lechmere,Heath Street,place-symcl,Symphony,place-nuniv,Northeastern University,0.281,3.657,101
+Green E,Lechmere,Heath Street,place-nuniv,Northeastern University,place-brmnl,Brigham Circle,0.918,4.575,102
+Green E,Lechmere,Heath Street,place-brmnl,Brigham Circle,place-hsmnl,Heath Street,0.699,5.274,103
+Green E,Heath Street,Lechmere,place-hsmnl,Heath Street,place-brmnl,Brigham Circle,0.699,0.699,104
+Green E,Heath Street,Lechmere,place-brmnl,Brigham Circle,place-nuniv,Northeastern University,0.918,1.617,105
+Green E,Heath Street,Lechmere,place-nuniv,Northeastern University,place-symcl,Symphony,0.281,1.898,106
+Green E,Heath Street,Lechmere,place-symcl,Symphony,place-prmnl,Prudential,0.232,2.13,107
+Green E,Heath Street,Lechmere,place-prmnl,Prudential,place-coecl,Copley,0.422,2.552,108
+Green E,Heath Street,Lechmere,place-coecl,Copley,place-armnl,Arlington,0.363,2.915,109
+Green E,Heath Street,Lechmere,place-armnl,Arlington,place-boyls,Boylston,0.325,3.24,110
+Green E,Heath Street,Lechmere,place-boyls,Boylston,place-pktrm,Park Street,0.303,3.543,111
+Green E,Heath Street,Lechmere,place-pktrm,Park Street,place-gover,Government Center,0.257,3.8,112
+Green E,Heath Street,Lechmere,place-gover,Government Center,place-haecl,Haymarket,0.275,4.075,113
+Green E,Heath Street,Lechmere,place-haecl,Haymarket,place-north,North Station,0.22,4.295,114
+Green E,Heath Street,Lechmere,place-north,North Station,place-spmnl,Science Park,0.543,4.838,115
+Green E,Heath Street,Lechmere,place-spmnl,Science Park,place-lech,Lechmere,0.447,5.285,116
+Orange,Forest Hills,Oak Grove,place-forhl,Forest Hills,place-grnst,Green Street,0.69,0.69,117
+Orange,Forest Hills,Oak Grove,place-grnst,Green Street,place-sbmnl,Stony Brook,0.51,1.2,118
+Orange,Forest Hills,Oak Grove,place-sbmnl,Stony Brook,place-jaksn,Jackson Square,0.51,1.71,119
+Orange,Forest Hills,Oak Grove,place-jaksn,Jackson Square,place-rcmnl,Roxbury Crossing,0.55,2.26,120
+Orange,Forest Hills,Oak Grove,place-rcmnl,Roxbury Crossing,place-rugg,Ruggles,0.52,2.78,121
+Orange,Forest Hills,Oak Grove,place-rugg,Ruggles,place-masta,Massachusetts Ave.,0.41,3.19,122
+Orange,Forest Hills,Oak Grove,place-masta,Massachusetts Ave.,place-bbsta,Back Bay,0.69,3.88,123
+Orange,Forest Hills,Oak Grove,place-bbsta,Back Bay,place-tumnl,Tufts Medical Center,0.55,4.43,124
+Orange,Forest Hills,Oak Grove,place-tumnl,Tufts Medical Center,place-chncl,Chinatown,0.27,4.7,125
+Orange,Forest Hills,Oak Grove,place-chncl,Chinatown,place-dwnxg,Downtown Crossing,0.25,4.95,126
+Orange,Forest Hills,Oak Grove,place-dwnxg,Downtown Crossing,place-state,State Street,0.25,5.2,127
+Orange,Forest Hills,Oak Grove,place-state,State Street,place-haecl,Haymarket,0.22,5.42,128
+Orange,Forest Hills,Oak Grove,place-haecl,Haymarket,place-north,North Station,0.27,5.69,129
+Orange,Forest Hills,Oak Grove,place-north,North Station,place-ccmnl,Community College,0.81,6.5,130
+Orange,Forest Hills,Oak Grove,place-ccmnl,Community College,place-sull,Sullivan Square,0.83,7.33,131
+Orange,Forest Hills,Oak Grove,place-sull,Sullivan Square,place-welln,Wellington,1.19,8.52,132
+Orange,Forest Hills,Oak Grove,place-welln,Wellington,place-mlmnl,Malden Center,1.75,10.27,133
+Orange,Forest Hills,Oak Grove,place-mlmnl,Malden Center,place-ogmnl,Oak Grove,0.83,11.1,134
+Orange,Oak Grove,Forest Hills,place-ogmnl,Oak Grove,place-mlmnl,Malden Center,0.83,0.83,135
+Orange,Oak Grove,Forest Hills,place-mlmnl,Malden Center,place-welln,Wellington,1.75,2.58,136
+Orange,Oak Grove,Forest Hills,place-welln,Wellington,place-sull,Sullivan Square,1.19,3.77,137
+Orange,Oak Grove,Forest Hills,place-sull,Sullivan Square,place-ccmnl,Community College,0.83,4.6,138
+Orange,Oak Grove,Forest Hills,place-ccmnl,Community College,place-north,North Station,0.81,5.41,139
+Orange,Oak Grove,Forest Hills,place-north,North Station,place-haecl,Haymarket,0.27,5.68,140
+Orange,Oak Grove,Forest Hills,place-haecl,Haymarket,place-state,State Street,0.35,6.03,141
+Orange,Oak Grove,Forest Hills,place-state,State Street,place-dwnxg,Downtown Crossing,0.18,6.21,142
+Orange,Oak Grove,Forest Hills,place-dwnxg,Downtown Crossing,place-chncl,Chinatown,0.25,6.46,143
+Orange,Oak Grove,Forest Hills,place-chncl,Chinatown,place-tumnl,Tufts Medical Center,0.27,6.73,144
+Orange,Oak Grove,Forest Hills,place-tumnl,Tufts Medical Center,place-bbsta,Back Bay,0.55,7.28,145
+Orange,Oak Grove,Forest Hills,place-bbsta,Back Bay,place-masta,Massachusetts Ave.,0.69,7.97,146
+Orange,Oak Grove,Forest Hills,place-masta,Massachusetts Ave.,place-rugg,Ruggles,0.41,8.38,147
+Orange,Oak Grove,Forest Hills,place-rugg,Ruggles,place-rcmnl,Roxbury Crossing,0.52,8.9,148
+Orange,Oak Grove,Forest Hills,place-rcmnl,Roxbury Crossing,place-jaksn,Jackson Square,0.55,9.45,149
+Orange,Oak Grove,Forest Hills,place-jaksn,Jackson Square,place-sbmnl,Stony Brook,0.51,9.96,150
+Orange,Oak Grove,Forest Hills,place-sbmnl,Stony Brook,place-grnst,Green Street,0.51,10.47,151
+Orange,Oak Grove,Forest Hills,place-grnst,Green Street,place-forhl,Forest Hills,0.69,11.16,152
+Blue,Wonderland,Bowdoin,place-wondl,Wonderland,place-rbmnl,Revere Beach,0.4,0.4,153
+Blue,Wonderland,Bowdoin,place-rbmnl,Revere Beach,place-bmmnl,Beachmont,0.73,1.13,154
+Blue,Wonderland,Bowdoin,place-bmmnl,Beachmont,place-sdmnl,Suffolk Downs,0.57,1.7,155
+Blue,Wonderland,Bowdoin,place-sdmnl,Suffolk Downs,place-orhte,Orient Heights,0.44,2.14,156
+Blue,Wonderland,Bowdoin,place-orhte,Orient Heights,place-wimnl,Wood Island,1.08,3.22,157
+Blue,Wonderland,Bowdoin,place-wimnl,Wood Island,place-aport,Airport,0.63,3.85,158
+Blue,Wonderland,Bowdoin,place-aport,Airport,place-mvbcl,Maverick,0.57,4.42,159
+Blue,Wonderland,Bowdoin,place-mvbcl,Maverick,place-aqucl,Aquarium,0.9,5.32,160
+Blue,Wonderland,Bowdoin,place-aqucl,Aquarium,place-state,State Street,0.28,5.6,161
+Blue,Wonderland,Bowdoin,place-state,State Street,place-gover,Government Center,0.17,5.77,162
+Blue,Wonderland,Bowdoin,place-gover,Government Center,place-bomnl,Bowdoin,0.17,5.94,163
+Blue,Bowdoin,Wonderland,place-bomnl,Bowdoin,place-gover,Government Center,0.15,0.15,164
+Blue,Bowdoin,Wonderland,place-gover,Government Center,place-state,State Street,0.18,0.33,165
+Blue,Bowdoin,Wonderland,place-state,State Street,place-aqucl,Aquarium,0.28,0.61,166
+Blue,Bowdoin,Wonderland,place-aqucl,Aquarium,place-mvbcl,Maverick,0.9,1.51,167
+Blue,Bowdoin,Wonderland,place-mvbcl,Maverick,place-aport,Airport,0.57,2.08,168
+Blue,Bowdoin,Wonderland,place-aport,Airport,place-wimnl,Wood Island,0.63,2.71,169
+Blue,Bowdoin,Wonderland,place-wimnl,Wood Island,place-orhte,Orient Heights,1.08,3.79,170
+Blue,Bowdoin,Wonderland,place-orhte,Orient Heights,place-sdmnl,Suffolk Downs,0.47,4.26,171
+Blue,Bowdoin,Wonderland,place-sdmnl,Suffolk Downs,place-bmmnl,Beachmont,0.54,4.8,172
+Blue,Bowdoin,Wonderland,place-bmmnl,Beachmont,place-rbmnl,Revere Beach,0.73,5.53,173
+Blue,Bowdoin,Wonderland,place-rbmnl,Revere Beach,place-wondl,Wonderland,0.4,5.93,174
+Red,Ashmont,Alewife,place-dwnxg,Downtown Crossing,place-pktrm,Park Street,0.23,5.81,175
+Red,Ashmont,Alewife,place-pktrm,Park Street,place-chmnl,Charles/MGH,0.56,6.37,176
+Red,Ashmont,Alewife,place-chmnl,Charles/MGH,place-knncl,Kendall/MIT,0.71,7.08,177
+Red,Ashmont,Alewife,place-knncl,Kendall/MIT,place-cntsq,Central,0.95,8.03,178
+Red,Ashmont,Alewife,place-cntsq,Central,place-harsq,Harvard,1.07,9.1,179
+Red,Ashmont,Alewife,place-harsq,Harvard,place-portr,Porter,0.99,10.09,180
+Red,Ashmont,Alewife,place-portr,Porter,place-davis,Davis,0.66,10.75,181
+Red,Ashmont,Alewife,place-davis,Davis,place-alfcl,Alewife,0.96,11.71,182
+Mattapan,Ashmont,Mattapan,place-asmnl,Ashmont,place-cedgr,Cedar Grove,0.38,0.38,183
+Mattapan,Ashmont,Mattapan,place-cedgr,Cedar Grove,place-butlr,Butler,0.57,0.95,184
+Mattapan,Ashmont,Mattapan,place-butlr,Butler,place-miltt,Milton,0.29,1.24,185
+Mattapan,Ashmont,Mattapan,place-miltt,Milton,place-cenav,Central Ave.,0.31,1.55,186
+Mattapan,Ashmont,Mattapan,place-cenav,Central Ave.,place-valrd,Valley Road,0.44,1.99,187
+Mattapan,Ashmont,Mattapan,place-valrd,Valley Road,place-capst,Capen Street,0.3,2.29,188
+Mattapan,Ashmont,Mattapan,place-capst,Capen Street,place-matt,Mattapan,0.26,2.55,189
+Mattapan,Mattapan,Ashmont,place-matt,Mattapan,place-capst,Capen Street,0.25,2.8,190
+Mattapan,Mattapan,Ashmont,place-capst,Capen Street,place-valrd,Valley Road,0.31,3.11,191
+Mattapan,Mattapan,Ashmont,place-valrd,Valley Road,place-cenav,Central Ave.,0.43,3.54,192
+Mattapan,Mattapan,Ashmont,place-cenav,Central Ave.,place-miltt,Milton,0.42,3.96,193
+Mattapan,Mattapan,Ashmont,place-miltt,Milton,place-butlr,Butler,0.29,4.25,194
+Mattapan,Mattapan,Ashmont,place-butlr,Butler,place-cedgr,Cedar Grove,0.57,4.82,195
+Mattapan,Mattapan,Ashmont,place-cedgr,Cedar Grove,place-asmnl,Ashmont,0.38,5.2,196
+Green B,Government Center,Boston College,place-gover,Government Center,place-pktrm,Park Street,0.253,0.253,197
+Green B,Government Center,Boston College,place-pktrm,Park Street,place-boyls,Boylston,0.263,0.516,198
+Green B,Government Center,Boston College,place-boyls,Boylston,place-armnl,Arlington,0.355,0.871,199
+Green B,Government Center,Boston College,place-armnl,Arlington,place-coecl,Copley,0.362,1.233,200
+Green B,Government Center,Boston College,place-coecl,Copley,place-hymnl,Hynes Convention Center,0.565,1.798,201
+Green B,Government Center,Boston College,place-hymnl,Hynes Convention Center,place-kencl,Kenmore,0.343,2.141,202
+Green B,Government Center,Boston College,place-kencl,Kenmore,place-bland,Blandford Street,0.317,2.458,203
+Green B,Government Center,Boston College,place-bland,Blandford Street,place-brico,Packards Corner,1.286,3.744,204
+Green B,Government Center,Boston College,place-brico,Packards Corner,place-chill,Chestnut Hill Ave.,1.946,5.69,205
+Green B,Government Center,Boston College,place-chill,Chestnut Hill Ave.,place-lake,Boston College,0.724,6.414,206
+Green B,Boston College,Government Center,place-lake,Boston College,place-chill,Chestnut Hill Ave.,0.768,0.768,207
+Green B,Boston College,Government Center,place-chill,Chestnut Hill Ave.,place-brico,Packards Corner,1.947,2.715,208
+Green B,Boston College,Government Center,place-brico,Packards Corner,place-bland,Blandford Street,1.273,3.988,209
+Green B,Boston College,Government Center,place-bland,Blandford Street,place-kencl,Kenmore,0.264,4.252,210
+Green B,Boston College,Government Center,place-kencl,Kenmore,place-hymnl,Hynes Convention Center,0.362,4.614,211
+Green B,Boston College,Government Center,place-hymnl,Hynes Convention Center,place-coecl,Copley,0.565,5.179,212
+Green B,Boston College,Government Center,place-coecl,Copley,place-armnl,Arlington,0.363,5.542,213
+Green B,Boston College,Government Center,place-armnl,Arlington,place-boyls,Boylston,0.325,5.867,214
+Green B,Boston College,Government Center,place-boyls,Boylston,place-pktrm,Park Street,0.303,6.17,215
+Green B,Boston College,Government Center,place-pktrm,Park Street,place-gover,Government Center,0.249,6.419,216
+Green C,North Station,Cleveland Circle,place-north,North Station,place-haecl,Haymarket,0.219,0.219,217
+Green C,North Station,Cleveland Circle,place-haecl,Haymarket,place-gover,Government Center,0.279,0.498,218
+Green C,North Station,Cleveland Circle,place-gover,Government Center,place-pktrm,Park Street,0.253,0.751,219
+Green C,North Station,Cleveland Circle,place-pktrm,Park Street,place-boyls,Boylston,0.263,1.014,220
+Green C,North Station,Cleveland Circle,place-boyls,Boylston,place-armnl,Arlington,0.355,1.369,221
+Green C,North Station,Cleveland Circle,place-armnl,Arlington,place-coecl,Copley,0.362,1.731,222
+Green C,North Station,Cleveland Circle,place-coecl,Copley,place-hymnl,Hynes Convention Center,0.565,2.296,223
+Green C,North Station,Cleveland Circle,place-hymnl,Hynes Convention Center,place-kencl,Kenmore,0.343,2.639,224
+Green C,North Station,Cleveland Circle,place-kencl,Kenmore,,Beacon Junction,0.141,2.78,225
+Green C,North Station,Cleveland Circle,,Beacon Junction,place-smary,Saint Mary Street,0.571,3.351,226
+Green C,North Station,Cleveland Circle,place-smary,Saint Mary Street,place-cool,Coolidge Corner,0.756,4.107,227
+Green C,North Station,Cleveland Circle,place-cool,Coolidge Corner,place-bcnwa,Washington Square,0.757,4.864,228
+Green C,North Station,Cleveland Circle,place-bcnwa,Washington Square,place-clmnl,Cleveland Circle,0.755,5.619,229
+Green C,Cleveland Circle,North Station,place-clmnl,Cleveland Circle,place-bcnwa,Washington Square,0.763,0.763,230
+Green C,Cleveland Circle,North Station,place-bcnwa,Washington Square,place-cool,Coolidge Corner,0.749,1.512,231
+Green C,Cleveland Circle,North Station,place-cool,Coolidge Corner,place-smary,Saint Mary Street,0.756,2.268,232
+1 Bus,Nubian,Harvard,place-masta,Massachusetts Ave.,place-symcl,Symphony,0.1,0.1,233
+1 Bus,Nubian,Harvard,place-symcl,Symphony,place-hymnl,Hynes Convention Center,0.4,0.5,234
+1 Bus,Nubian,Harvard,place-symcl,place-hymnl,Hynes Convention Center,Central,1.4,1.9,235
+1 Bus,Nubian,Harvard,place-cntsq,Central,place-harsq,Harvard,1,2.9,236
+1 Bus,Harvard,Nubian,place-harsq,Harvard,place-cntsq,Central,1,1,237
+1 Bus,Harvard,Nubian,place-cntsq,Central,place-hymnl,Hynes Convention Center,1.4,2.4,238
+1 Bus,Harvard,Nubian,place-hymnl,Hynes Convention Center,place-symcl,Symphony,0.4,2.8,239
+1 Bus,Harvard,Nubian,place-symcl,Symphony,place-masta,Massachusetts Ave.,0.1,2.9,240
+47 Bus,Harvard,Nubian,place-brdwy,Broadway,place-rugg,Ruggles,2.6,2.6,241
+47 Bus,Harvard,Nubian,place-rugg,Ruggles,place-fenwy,Fenway,1.2,3.8,242
+47 Bus,Harvard,Nubian,place-fenwy,Fenway,place-cntsq,Central,1.8,5.6,243
+47 Bus,Nubian,Harvard,place-cntsq,Central,place-fenwy,Fenway,1.8,5.6,244
+47 Bus,Nubian,Harvard,place-fenwy,Fenway,place-rugg,Ruggles,1.2,3.8,245
+47 Bus,Nubian,Harvard,place-rugg,Ruggles,place-brdwy,Broadway,2.6,2.6,246
+66 Bus,Harvard,Nubian,place-cool,Coolidge Corner,place-brmnl,Brigham Circle,2,2,247
+66 Bus,Harvard,Nubian,place-harsq,Harvard,place-cool,Coolidge Corner,3.1,5.1,248
+66 Bus,Nubian,Harvard,place-cool,Coolidge Corner,place-harsq,Harvard,3.1,5.1,249
+66 Bus,Nubian,Harvard,place-brmnl,Brigham Circle,place-cool,Coolidge Corner,2,2,250

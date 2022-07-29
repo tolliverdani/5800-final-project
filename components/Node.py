@@ -4,7 +4,7 @@ class Node:
     # constructor that takes in station name and line color
     def __init__(self, station: str):
         self.station = station
-        self.color = ""
+        self.color = []
         self.edges = {}
 
     def getStation(self):
@@ -14,13 +14,11 @@ class Node:
         self.edges[station] = weight
 
     def addColor(self, color: str):
-        self.color = color
-
-    def __getitem__(self):
-        return self
+        if color not in self.color:
+            self.color.append(color)
 
     # repr that returns the station name
     def __repr__(self):
         return self.station \
-               + ", " + self.color \
+               + ", " + str(self.color) \
                + ", " + str(self.edges)
