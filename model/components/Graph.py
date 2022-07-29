@@ -1,7 +1,7 @@
 from cmath import inf
 from collections import defaultdict
 
-from components import Node
+from model.components import Node
 
 
 class Graph:

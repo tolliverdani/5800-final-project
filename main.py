@@ -1,13 +1,14 @@
 # importing class files
-from components import Graph, Node
+from controller.Controller import getStartEnd
+from model.components import Graph, Node
 from data import API
 from model.CostAnalysis import *
+from controller import *
 
 MBTA = Graph.Graph()
 
 
-# TODO: I think we should take these out and put into
-#  another doc, maybe a controller?
+# TODO: I think we should move these into the model...
 # function to add station nodes to graph - O(n + k)
 def add_nodes_to_graph(data):
     # loop through the API data and
@@ -45,14 +46,15 @@ if __name__ == '__main__':
     add_nodes_to_graph(station_data)
     add_edges_to_nodes(station_data)
 
-    # get inputs from the user
-    # START = input("Enter starting station: ")
-    # END = input("Enter ending station: ")
+    # get inputs from controller
+    # START, END = getStartEnd()
+
+    # TODO: delete later and use the controller
+    # default input values for testing
     START = "Downtown Crossing"
     END = "Maverick"
-    print(MBTA.getStation(START))
 
-    # TODO: should we refactor this into the models folder?
+    # TODO: should we refactor all this into the models folder?
     # distances is a hashmap of all stations from the start point
     distances = MBTA.shortest_path(START)
     print(distances)
@@ -68,6 +70,7 @@ if __name__ == '__main__':
     print(cost_per_mile)
 
     # TODO: should we use a plot for the averages for each line?
+    #  also we might want to move this to the view
     # https://www.geeksforgeeks.org/graph-plotting-in-python-set-1/
     arr = calculateAllCosts(distances)
     print(arr)

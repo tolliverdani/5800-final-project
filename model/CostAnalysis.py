@@ -1,4 +1,6 @@
 import matplotlib.pyplot as plt
+import pandas as pd
+from scipy.stats import norm
 
 
 # function to calculate the distance using the flat rate of $2.70
@@ -38,8 +40,12 @@ def calculateAvgCost(distances):
     return total / count
 
 
+# TODO: trying to make a plot of the costs
+# https://www.geeksforgeeks.org/how-to-plot-normal-distribution-over-histogram-in-python/
 # function to plot the array
-def plotCalc(array):
-    plt.plot(array)
-    plt.title('test')
+def plotCalc(data):
+    mu, std = norm.fit(data)
+    plt.hist(data, bins=100, density=True, alpha=0.6, color='blue')
+    title = "Fit Values: {:.2f} and {:.2f}".format(mu, std)
+    plt.title(title)
     plt.show()
