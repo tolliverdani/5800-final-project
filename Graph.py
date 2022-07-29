@@ -1,3 +1,4 @@
+from cmath import inf
 from collections import defaultdict
 
 import Node
@@ -9,6 +10,23 @@ class Graph:
     # constructor with no params and creates a dict
     def __init__(self):
         self.graph = defaultdict()
+    
+    # function to create copy of graph for dikjstra
+    def create_distance_dictionary(self, source: str):
+        d_nodes = {}
+        for key in self.graph.keys():
+            if key == source:
+                d_nodes[key] = {"weight": 0, "prev": key}
+            else:
+                d_nodes[key] = {"weight": inf, "prev": ""}
+        
+        return d_nodes;
+    
+    def create_visited_dictionary(self, source: str):
+        d_nodes = {}
+        for key in self.graph.keys():
+            d_nodes[key] = False
+        return d_nodes
 
     # function to add a node
     def addNode(self, node: Node.Node(str)):
@@ -65,3 +83,55 @@ class Graph:
                               + str(self.getDistance(node, edge)))
 
         return visited
+
+    def print_path(self, source: str, dest: str, distance_dict):
+        if ( source == dest ):
+            return [source]
+        path = []
+        path.append(dest)
+        prev = distance_dict[dest]['prev']
+        
+        while (True):
+            path.append(prev)
+            prev = distance_dict[prev]['prev']
+            if ( prev == source ):
+                break
+        path.append(prev)
+
+        for station in reversed(path):
+            print(station, sep="->")
+        
+
+
+    def nate_shortest_path(self, source):
+
+        distance_dict = self.create_distance_dictionary(source)
+        visited_dict = self.create_visited_dictionary(source)
+
+        for key_i, value_i in self.graph.items():
+            source = None
+            for key_j in self.graph.keys():
+                if not visited_dict[key_j] and (source == None or distance_dict[key_j]["weight"] < distance_dict[source]["weight"]):
+                    source = key_j
+            
+            if distance_dict[source]["weight"] == inf:
+                break
+
+            visited_dict[source] = True
+            neighbors = self.graph[source].edges
+
+            for key, value in neighbors.items():
+                weight = value
+                if ( distance_dict[source]["weight"] + weight < distance_dict[key]["weight"]):
+                    distance_dict[key]["weight"] = distance_dict[source]["weight"] + weight
+                    distance_dict[key]["prev"] = source
+
+        return distance_dict
+
+
+            
+        
+        
+
+        
+

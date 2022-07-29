@@ -43,9 +43,12 @@ if __name__ == '__main__':
     add_nodes_to_graph(station_data)
     add_edges_to_nodes(station_data)
 
-    print(MBTA.getStation('Alewife'))
-    print(MBTA.getStation('Maverick'))
+    # print(MBTA.getStation('Alewife'))
+    # print(MBTA.getStation('Maverick'))
 
-    print(MBTA.findShortestPath('Alewife', 'Maverick'))
+    # print(MBTA.findShortestPath('Alewife', 'Maverick'))
+    distances = MBTA.nate_shortest_path('Alewife')
+    MBTA.print_path("Stony Brook", "Maverick", distances)
+
     # final print of graph
     # print(MBTA.graph)
