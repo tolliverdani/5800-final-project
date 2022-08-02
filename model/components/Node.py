@@ -14,8 +14,15 @@ class Node:
         self.edges[station] = weight
 
     def addColor(self, color: str):
-        if color not in self.color:
-            self.color.append(color)
+        if type(color) == list:
+            temp = ''
+            for char in color:
+                temp += char
+            if temp not in self.color:
+                self.color.append(temp)
+        else:
+            if color not in self.color:
+                self.color.append(str(color))
 
     # repr that returns the station name
     def __repr__(self):
