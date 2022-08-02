@@ -27,4 +27,5 @@ class Node:
 
     # repr that returns the station name
     def __repr__(self):
-        return str(self.edges)
+        return str(self.color) \
+               + " " + str(self.edges)

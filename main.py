@@ -80,6 +80,7 @@ if __name__ == '__main__':
     END = "Fenway"
 
     print(MBTA.graph)
+    print(MBTA.graph['Ashmont'])
     # TODO: should we refactor all this into the models folder?
     # distances is a hashmap of all stations from the start point
     distances = MBTA.shortest_path(START)
