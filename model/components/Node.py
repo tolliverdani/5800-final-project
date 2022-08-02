@@ -10,8 +10,9 @@ class Node:
     def getStation(self):
         return self.station
 
-    def addEdge(self, station: str, weight: int):
-        self.edges[station] = weight
+    def addEdge(self, station: str, color: str, weight: float):
+        data = {'color': color, 'weight': weight}
+        self.edges[station] = data
 
     def addColor(self, color: str):
         if type(color) == list:
@@ -26,6 +27,4 @@ class Node:
 
     # repr that returns the station name
     def __repr__(self):
-        return self.station \
-               + ", " + str(self.color) \
-               + ", " + str(self.edges)
+        return str(self.edges)

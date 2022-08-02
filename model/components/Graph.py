@@ -18,13 +18,13 @@ class Graph:
             self.getStation(node.station).addColor(node.color)
 
     # function to add edges to the graph
-    def addEdges(self, source: str, dest: str, weight: int):
+    def addEdges(self, source: str, dest: str, color: str, weight: float):
         # look up the nodes
         source_node = self.graph[source]
         dest_node = self.graph[dest]
 
         # then define the edges
-        source_node.addEdge(dest_node.station, weight)
+        source_node.addEdge(dest_node.station, color, weight)
 
     # function to return the nodes in graph
     def getKeys(self):
@@ -102,7 +102,7 @@ class Graph:
                 weight = value
 
                 # if the distance of the source + weight < what's stored in the dict already
-                if distance_dict[source]["weight"] + weight < distance_dict[key]["weight"]:
+                if distance_dict[source][source]["weight"] + weight < distance_dict[key]["weight"]:
                     # override the value in the dict and save the details
                     distance_dict[key]["weight"] = distance_dict[source]["weight"] + weight
                     distance_dict[key]["prev"] = source
@@ -131,7 +131,7 @@ class Graph:
 
         color = None
         for station in reversed(path):
-            if self.graph[station].color != color:
+            if color not in self.graph[station].color:
                 if station == source:
                     print("*** Start on " + self.graph[station].color[0] + " ***")
                 else:

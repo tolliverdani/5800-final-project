@@ -41,9 +41,10 @@ def add_edges_to_nodes(data, bus_data):
         # defining the two stations
         source = station['properties']['from_station_name']
         dest = station['properties']['to_station_name']
+        color = station['properties']['route_id']
 
         # adding the edge between nodes
-        MBTA.addEdges(source, dest, weight)
+        MBTA.addEdges(source, dest, color, weight)
 
     # loop through the CSV data and
     # save the nodes in the graph
@@ -54,9 +55,10 @@ def add_edges_to_nodes(data, bus_data):
         # defining the two stations
         source = bus_data[station]['from_station_name']
         dest = bus_data[station]['to_station_name']
+        color = bus_data[station]['\ufeffroute_id']
 
         # adding the edge between nodes
-        MBTA.addEdges(source, dest, weight)
+        MBTA.addEdges(source, dest, color, weight)
 
 
 # main function to run the program
