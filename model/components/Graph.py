@@ -64,7 +64,9 @@ class Graph:
 
     # TODO: I think these also should go into another
     #  file, like model.ShortestPath or smth
-    # function to create copy of graph for dikjstra
+
+    # function to create copy of graph as a dictionary to keep track of distances between nodes
+    # key = station, weight = as described, prev = previous station, color = color of the line
     def create_distance_dictionary(self, source: str):
         # create an empty dictionary
         d_nodes = {}
@@ -81,7 +83,8 @@ class Graph:
     
      # TODO: I think these also should go into another
     #  file, like model.ShortestPath or smth
-    # function to create copy of graph for dikjstra
+    # function to create a tuple representation of the graph that holdes (distance, station)
+    # so that the heapq can be used
     def create_distance_tuple(self, source: str):
         # create an empty dictionary
         d_nodes = []
@@ -97,6 +100,7 @@ class Graph:
         return d_nodes
 
     # helper function to create a visited dict
+    # this helps to keep track of which nodes have been visited
     def create_visited_dictionary(self, source: str):
         # create an empty dict
         d_nodes = {}
@@ -108,23 +112,30 @@ class Graph:
         # return the dict
         return d_nodes
     
+    # this is a shortest_path algorithm that uses a min heap via the heapq library
     def shortest_path_heap(self, source: str):
+        # capture start time 
         start_time = time.time()
+
+        # create visited dictionary, distance dictionary, and a min heap
         visited_dict = self.create_visited_dictionary(source)
         distance_dict = self.create_distance_dictionary(source)
         min_heap = self.create_distance_tuple(source)
         hq.heapify(min_heap)
 
+        # while the min_heap isn't empty, pop off the next station with the next smallest distance
         while ( len(min_heap) > 0 ):
+
             distance, source = hq.heappop(min_heap) 
 
-            # pop off the next shortest value
+            # if this node has already been visited, skip it and continue
             if ( visited_dict[source] == True ):
                 continue
 
             # this node is now visited, so update the dictionary
             visited_dict[source] = True
 
+            # retrieve the neighbors of the node that was just removed from the heap
             neighbors = self.graph[source].edges
 
             # and iterate over them            
@@ -133,38 +144,59 @@ class Graph:
                 color = edge[1]
                 weight = edge[2]
 
-                # if the distance of the source + weight < what's stored in the dict already
-                if distance_dict[source]["weight"] + weight < distance_dict[key]["weight"]:
+                if distance_dict[source]["weight"] + weight == distance_dict[key]["weight"] and distance_dict[source]["color"] == color:
                     # override the value in the dict and save the details
                     distance_dict[key]["weight"] = distance_dict[source]["weight"] + weight
                     distance_dict[key]["prev"] = source
                     distance_dict[key]["color"] = color
+
+                    # update the heap with the new value
+                    hq.heappush(min_heap,(distance_dict[key]["weight"], key))
+
+                # if the distance of the source + weight < what's stored in the dict already
+                elif distance_dict[source]["weight"] + weight < distance_dict[key]["weight"]:
+                    # override the value in the dict and save the details
+                    distance_dict[key]["weight"] = distance_dict[source]["weight"] + weight
+                    distance_dict[key]["prev"] = source
+                    distance_dict[key]["color"] = color
+
+                    # update the heap with the new value
                     hq.heappush(min_heap,(distance_dict[key]["weight"], key))
         
+        # capture the end time
         end_time = time.time()
+
+        # print total elapsed time
         print("Time elapsed = " + str(end_time - start_time))
         
+        # return distance dictionary, which has shortest path to every station from source
         return distance_dict
 
 
 
-    # function to calculate the shortest path
+    # function to calculate the shortest path using a loop to find the next shortest station
     def shortest_path(self, source: str):
+
+        # capture start time 
         start_time = time.time()
 
-        # use helper functions to create two dicts
+        # use helper functions to create two dicts, one to track visited nodes and the other to track
+        # weights and previous nodes
         distance_dict = self.create_distance_dictionary(source)
         visited_dict = self.create_visited_dictionary(source)
 
         # iterate over the nodes in the graph
-        for key_i, value_i in self.graph.items():
+        for _a, _b in self.graph.items():
 
             source = None
+
+            # use a flor loop to find the next smallest weight of an unvisited node
             for key_j in self.graph.keys():
                 if not visited_dict[key_j] and (source is None or distance_dict[key_j]["weight"] < distance_dict[source]["weight"]):
                     source = key_j
 
-            # set all weights as infinity
+            # if the weight is still infinity, skip it
+            # TODO: can we remove this check
             if distance_dict[source]["weight"] == inf:
                 break
 
