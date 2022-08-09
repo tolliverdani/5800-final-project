@@ -1,7 +1,8 @@
 from cmath import inf
 from collections import defaultdict
 from turtle import distance
-import heapq as min_heap
+import heapq as hq
+import time
 
 from model.components import Node
 
@@ -108,14 +109,49 @@ class Graph:
         return d_nodes
     
     def shortest_path_heap(self, source: str):
+        start_time = time.time()
         visited_dict = self.create_visited_dictionary(source)
-        tuples = self.create_distance_tuple(source)
-        min_heap.heapify(tuples)
+        distance_dict = self.create_distance_dictionary(source)
+        min_heap = self.create_distance_tuple(source)
+        hq.heapify(min_heap)
+
+        while ( len(min_heap) > 0 ):
+            distance, source = hq.heappop(min_heap) 
+
+            # pop off the next shortest value
+            if ( visited_dict[source] == True ):
+                continue
+
+            # this node is now visited, so update the dictionary
+            visited_dict[source] = True
+
+            neighbors = self.graph[source].edges
+
+            # and iterate over them            
+            for edge in neighbors:
+                key = edge[0]
+                color = edge[1]
+                weight = edge[2]
+
+                # if the distance of the source + weight < what's stored in the dict already
+                if distance_dict[source]["weight"] + weight < distance_dict[key]["weight"]:
+                    # override the value in the dict and save the details
+                    distance_dict[key]["weight"] = distance_dict[source]["weight"] + weight
+                    distance_dict[key]["prev"] = source
+                    distance_dict[key]["color"] = color
+                    hq.heappush(min_heap,(distance_dict[key]["weight"], key))
+        
+        end_time = time.time()
+        print("Time elapsed = " + str(end_time - start_time))
+        
+        return distance_dict
 
 
 
     # function to calculate the shortest path
     def shortest_path(self, source: str):
+        start_time = time.time()
+
         # use helper functions to create two dicts
         distance_dict = self.create_distance_dictionary(source)
         visited_dict = self.create_visited_dictionary(source)
@@ -125,9 +161,7 @@ class Graph:
 
             source = None
             for key_j in self.graph.keys():
-                if not visited_dict[key_j] and \
-                        (source is None or distance_dict[key_j]["weight"]
-                         < distance_dict[source]["weight"]):
+                if not visited_dict[key_j] and (source is None or distance_dict[key_j]["weight"] < distance_dict[source]["weight"]):
                     source = key_j
 
             # set all weights as infinity
@@ -152,6 +186,10 @@ class Graph:
                     distance_dict[key]["weight"] = distance_dict[source]["weight"] + weight
                     distance_dict[key]["prev"] = source
                     distance_dict[key]["color"] = color
+
+        end_time = time.time()
+        print("Time elapsed = " + str(end_time - start_time))
+
 
         # return the final dict
         return distance_dict
@@ -207,11 +245,9 @@ class Graph:
             color = distance_dict[prev]['color']
             if prev == source:
                 break
-        
-        print(path)
-
+    
         print("## HERE IS YOUR ROUTE ##")
-        print(source)
+        print("Start at " + source)
         for station in reversed(path):
             print(station[1] + " to ", end="")
             print(station[0])

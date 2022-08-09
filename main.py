@@ -96,6 +96,7 @@ if __name__ == '__main__':
 
     # gathers the path from the start to end
     MBTA.print_path(START, END, distances)
+    MBTA.print_path(START, END, distances2)
     # print("Total Distance from " + START + " to " + END + " = " + str(round(distances[END]["weight"], 2)) + " miles.")
 
     # distance calcs go here
