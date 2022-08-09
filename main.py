@@ -76,15 +76,19 @@ if __name__ == '__main__':
 
     # TODO: delete later and use the controller
     # default input values for testing
-    START = "Central"
-    END = "Fenway"
+    print("## SELECT STARTING STATION ##")
+    START = MBTA.select_station()
 
-    print(MBTA.graph)
-    print(MBTA.graph['Ashmont'])
+    print("## SELECT END STATION ##")
+    END = MBTA.select_station()
+
+
+    # print(MBTA.graph)
+    # print(MBTA.graph['Ashmont'])
     # TODO: should we refactor all this into the models folder?
     # distances is a hashmap of all stations from the start point
     distances = MBTA.shortest_path(START)
-    # print(distances)
+    print(distances)
 
     # gathers the path from the start to end
     MBTA.print_path(START, END, distances)
@@ -99,7 +103,7 @@ if __name__ == '__main__':
     # TODO: should we use a plot for the averages for each line?
     #  also we might want to move this to the view
     # https://www.geeksforgeeks.org/graph-plotting-in-python-set-1/
-    arr = calculateAllCosts(distances)
+    # arr = calculateAllCosts(distances)
     # print(arr)
     # print(calculateAvgCost(distances))
-    plotCalc(arr)
+    # plotCalc(arr)

@@ -5,14 +5,18 @@ class Node:
     def __init__(self, station: str):
         self.station = station
         self.color = []
-        self.edges = {}
+        # edges will be a tuple ("destination", "color", weight)
+        self.edges = []
 
     def getStation(self):
         return self.station
 
     def addEdge(self, station: str, color: str, weight: float):
-        data = {'color': color, 'weight': weight}
-        self.edges[station] = data
+        self.edges.append((station, color, weight))
+
+        # TODO: Remove this old code eventually
+        # data = {'color': color, 'weight': weight}
+        # self.edges[station] = data
 
     def addColor(self, color: str):
         if type(color) == list:
