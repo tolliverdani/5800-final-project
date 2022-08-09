@@ -1,6 +1,7 @@
 from cmath import inf
 from collections import defaultdict
 from turtle import distance
+import heapq as min_heap
 
 from model.components import Node
 
@@ -76,6 +77,23 @@ class Graph:
 
         # return the dict
         return d_nodes
+    
+     # TODO: I think these also should go into another
+    #  file, like model.ShortestPath or smth
+    # function to create copy of graph for dikjstra
+    def create_distance_tuple(self, source: str):
+        # create an empty dictionary
+        d_nodes = []
+
+        # initialize all values as infinity (except the source = 0)
+        for key in self.graph.keys():
+            if key == source:
+                d_nodes.append((0, key))
+            else:
+                d_nodes.append((inf, key))
+
+        # return the dict
+        return d_nodes
 
     # helper function to create a visited dict
     def create_visited_dictionary(self, source: str):
@@ -88,9 +106,16 @@ class Graph:
 
         # return the dict
         return d_nodes
+    
+    def shortest_path_heap(self, source: str):
+        visited_dict = self.create_visited_dictionary(source)
+        tuples = self.create_distance_tuple(source)
+        min_heap.heapify(tuples)
+
+
 
     # function to calculate the shortest path
-    def shortest_path(self, source):
+    def shortest_path(self, source: str):
         # use helper functions to create two dicts
         distance_dict = self.create_distance_dictionary(source)
         visited_dict = self.create_visited_dictionary(source)
@@ -132,25 +157,28 @@ class Graph:
         return distance_dict
 
     def select_station(self):
-        print("Select the route on which your stop is located. Here are the available routes: ")
+        print("Select the route on which your stop is located. Here are the available routes:")
         for keys in self.station_routes.keys():
             print(keys)
         
+        print()
+        
+        color = input("Type the route name: ")
         while True:
-            color = input("Which route do you want? ")
             if color not in self.station_routes.keys():
-                color = input("That is not valid. Try again: ")
+                color = input("\n!! That is not valid. Try again: ")
             else:
                 break
         
-        print("Select the station. Here are the available stations: ")
+        print("\nSelect the station. Here are the available stations:")
         for stations in self.station_routes[color]:
             print(stations)
+        print()
         
+        station = input("\nType the station name: ")
         while True:
-            station = input("Which station do you want? ")
             if station not in self.station_routes[color]:
-                station = input("That is not valid. Try again: ")
+                station = input("\n!! That is not valid. Try again: ")
             else:
                 break
         
@@ -168,9 +196,10 @@ class Graph:
             print("You are already at your end destination!")
             return
 
-        path = [(dest, "Destination Reached!")]
-        prev = distance_dict[dest]['prev']
+        
+        prev = dest
         color = distance_dict[dest]['color']
+        path = []
 
         while True:
             path.append((prev, color))
@@ -182,14 +211,9 @@ class Graph:
         print(path)
 
         print("## HERE IS YOUR ROUTE ##")
-        color = None
         print(source)
         for station in reversed(path):
-            # if color not in self.graph[station].color:
-                # if station == source:
-                #     print("*** Start on " + self.graph[station].color[0] + " ***")
-                # else:
-                #     print("*** Transfer to " + self.graph[station].color[0] + " ***")
-            print(station[1])
+            print(station[1] + " to ", end="")
             print(station[0])
+            
 

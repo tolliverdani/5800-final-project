@@ -76,11 +76,14 @@ if __name__ == '__main__':
 
     # TODO: delete later and use the controller
     # default input values for testing
-    print("## SELECT STARTING STATION ##")
+    print("\n## SELECT STARTING STATION ##")
     START = MBTA.select_station()
+    # START = 'Davis'
 
-    print("## SELECT END STATION ##")
+    print("\n## SELECT END STATION ##")
     END = MBTA.select_station()
+    # END = 'Heath Street'
+
 
 
     # print(MBTA.graph)
@@ -88,7 +91,8 @@ if __name__ == '__main__':
     # TODO: should we refactor all this into the models folder?
     # distances is a hashmap of all stations from the start point
     distances = MBTA.shortest_path(START)
-    print(distances)
+    distances2 = MBTA.shortest_path_heap(START)
+    # print(distances)
 
     # gathers the path from the start to end
     MBTA.print_path(START, END, distances)
