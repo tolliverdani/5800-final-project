@@ -14,10 +14,6 @@ class Node:
     def addEdge(self, station: str, color: str, weight: float):
         self.edges.append((station, color, weight))
 
-        # TODO: Remove this old code eventually
-        # data = {'color': color, 'weight': weight}
-        # self.edges[station] = data
-
     def addColor(self, color: str):
         if type(color) == list:
             temp = ''

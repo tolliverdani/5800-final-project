@@ -1,10 +1,9 @@
 from cmath import inf
 from collections import defaultdict
-from turtle import distance
 import heapq as hq
 import time
 
-from model.components import Node
+from components import Node
 
 
 class Graph:
@@ -39,10 +38,10 @@ class Graph:
         if color not in self.station_routes.keys():
             # first time adding this color, then add both
             self.station_routes[color] = [source_node.station, dest_node.station]
-        else: 
+        else:
             if source_node.station not in self.station_routes[color]:
                 self.station_routes[color].append(source_node.station)
-            
+
             if dest_node.station not in self.station_routes[color]:
                 self.station_routes[color].append(dest_node.station)
 
@@ -62,9 +61,6 @@ class Graph:
     def getDistance(self, source, dest):
         return self.graph[source].edges[dest]
 
-    # TODO: I think these also should go into another
-    #  file, like model.ShortestPath or smth
-
     # function to create copy of graph as a dictionary to keep track of distances between nodes
     # key = station, weight = as described, prev = previous station, color = color of the line
     def create_distance_dictionary(self, source: str):
@@ -80,9 +76,7 @@ class Graph:
 
         # return the dict
         return d_nodes
-    
-     # TODO: I think these also should go into another
-    #  file, like model.ShortestPath or smth
+
     # function to create a tuple representation of the graph that holdes (distance, station)
     # so that the heapq can be used
     def create_distance_tuple(self, source: str):
@@ -111,7 +105,7 @@ class Graph:
 
         # return the dict
         return d_nodes
-    
+
     # this is a shortest_path algorithm that uses a min heap via the heapq library
     def shortest_path_heap(self, source: str):
         # capture start time 
@@ -124,12 +118,12 @@ class Graph:
         hq.heapify(min_heap)
 
         # while the min_heap isn't empty, pop off the next station with the next smallest distance
-        while ( len(min_heap) > 0 ):
+        while (len(min_heap) > 0):
 
-            distance, source = hq.heappop(min_heap) 
+            distance, source = hq.heappop(min_heap)
 
             # if this node has already been visited, skip it and continue
-            if ( visited_dict[source] == True ):
+            if (visited_dict[source] == True):
                 continue
 
             # this node is now visited, so update the dictionary
@@ -144,14 +138,15 @@ class Graph:
                 color = edge[1]
                 weight = edge[2]
 
-                if distance_dict[source]["weight"] + weight == distance_dict[key]["weight"] and distance_dict[source]["color"] == color:
+                if distance_dict[source]["weight"] + weight == distance_dict[key]["weight"] and distance_dict[source][
+                    "color"] == color:
                     # override the value in the dict and save the details
                     distance_dict[key]["weight"] = distance_dict[source]["weight"] + weight
                     distance_dict[key]["prev"] = source
                     distance_dict[key]["color"] = color
 
                     # update the heap with the new value
-                    hq.heappush(min_heap,(distance_dict[key]["weight"], key))
+                    hq.heappush(min_heap, (distance_dict[key]["weight"], key))
 
                 # if the distance of the source + weight < what's stored in the dict already
                 elif distance_dict[source]["weight"] + weight < distance_dict[key]["weight"]:
@@ -161,18 +156,16 @@ class Graph:
                     distance_dict[key]["color"] = color
 
                     # update the heap with the new value
-                    hq.heappush(min_heap,(distance_dict[key]["weight"], key))
-        
+                    hq.heappush(min_heap, (distance_dict[key]["weight"], key))
+
         # capture the end time
         end_time = time.time()
 
         # print total elapsed time
         print("Time elapsed = " + str(end_time - start_time))
-        
+
         # return distance dictionary, which has shortest path to every station from source
         return distance_dict
-
-
 
     # function to calculate the shortest path using a loop to find the next shortest station
     def shortest_path(self, source: str):
@@ -192,7 +185,8 @@ class Graph:
 
             # use a flor loop to find the next smallest weight of an unvisited node
             for key_j in self.graph.keys():
-                if not visited_dict[key_j] and (source is None or distance_dict[key_j]["weight"] < distance_dict[source]["weight"]):
+                if not visited_dict[key_j] and (
+                        source is None or distance_dict[key_j]["weight"] < distance_dict[source]["weight"]):
                     source = key_j
 
             # if the weight is still infinity, skip it
@@ -222,7 +216,6 @@ class Graph:
         end_time = time.time()
         print("Time elapsed = " + str(end_time - start_time))
 
-
         # return the final dict
         return distance_dict
 
@@ -230,34 +223,30 @@ class Graph:
         print("Select the route on which your stop is located. Here are the available routes:")
         for keys in self.station_routes.keys():
             print(keys)
-        
+
         print()
-        
+
         color = input("Type the route name: ")
         while True:
             if color not in self.station_routes.keys():
                 color = input("\n!! That is not valid. Try again: ")
             else:
                 break
-        
+
         print("\nSelect the station. Here are the available stations:")
         for stations in self.station_routes[color]:
             print(stations)
         print()
-        
+
         station = input("\nType the station name: ")
         while True:
             if station not in self.station_routes[color]:
                 station = input("\n!! That is not valid. Try again: ")
             else:
                 break
-        
+
         return station
 
-
-
-    # TODO: Rather than doing an outer loop, a min_heap would be more efficient
-    #  however, I don't see a min heap in Python. Java FTW
     # function to print the path from the source to the dest
     def print_path(self, source: str, dest: str, distance_dict):
 
@@ -266,7 +255,6 @@ class Graph:
             print("You are already at your end destination!")
             return
 
-        
         prev = dest
         color = distance_dict[dest]['color']
         path = []
@@ -277,11 +265,9 @@ class Graph:
             color = distance_dict[prev]['color']
             if prev == source:
                 break
-    
+
         print("## HERE IS YOUR ROUTE ##")
         print("Start at " + source)
         for station in reversed(path):
             print(station[1] + " to ", end="")
             print(station[0])
-            
-

@@ -1,11 +1,6 @@
 import csv
 
 
-# TODO: I think this isn't as useful as the API because it iterates
-#  over the entire line and their destinations instead of being
-#  station to station figures. LMK.
-
-
 # function to call MBTA station API and pass information in JSON format
 def get_bus_data(bus_csv):
     data = {}

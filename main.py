@@ -1,4 +1,4 @@
-from model.components import Graph, Node
+from components import Graph, Node
 from data import API, CSV
 from model.CostAnalysis import *
 
@@ -7,7 +7,6 @@ bus_csv = './data/MBTA_Bus_Distances.csv'
 MBTA = Graph.Graph()
 
 
-# TODO: I think we should move these into the model...
 # function to add station nodes to graph - O(n + k)
 def add_nodes_to_graph(MBTA_data, bus_data):
     # loop through the API data and
@@ -71,39 +70,28 @@ if __name__ == '__main__':
     add_nodes_to_graph(station_data, bus_data)
     add_edges_to_nodes(station_data, bus_data)
 
-    # get inputs from controller
-    # START, END = getStartEnd()
-
-    # TODO: delete later and use the controller
     # default input values for testing
     print("\n## SELECT STARTING STATION ##")
     START = MBTA.select_station()
-    # START = 'Davis'
 
     print("\n## SELECT END STATION ##")
     END = MBTA.select_station()
-    # END = 'Heath Street'
 
-
-
-    # print(MBTA.graph)
-    # print(MBTA.graph['Ashmont'])
-    # TODO: should we refactor all this into the models folder?
-    # distances is a hashmap of all stations from the start point
+    # run the distances for the algorithm with nested loops
     distances = MBTA.shortest_path(START)
-    distances2 = MBTA.shortest_path_heap(START)
-    # print(distances)
-
-    # gathers the path from the start to end
     MBTA.print_path(START, END, distances)
+
+    # run the distances for the algorithm with heap
+    distances2 = MBTA.shortest_path_heap(START)
     MBTA.print_path(START, END, distances2)
+
     # print("Total Distance from " + START + " to " + END + " = " + str(round(distances[END]["weight"], 2)) + " miles.")
 
     # distance calcs go here
     distance = round(distances[END]["weight"], 2)
     cost_per_mile = calculateCost(distance)
-    # print(2.70 / distance)
-    # print(cost_per_mile)
+    print(2.70 / distance)
+    print(cost_per_mile)
 
     # TODO: should we use a plot for the averages for each line?
     #  also we might want to move this to the view
