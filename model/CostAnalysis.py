@@ -3,12 +3,12 @@ from scipy.stats import norm
 
 
 # function to calculate the distance using the flat rate of $2.70
-def calculateCost(distance: float):
+def calculate_cost(distance: float):
     return round((2.70 / distance), 2)
 
 
 # function to calculate cost of all rides from one starting station
-def calculateAllCosts(distances):
+def calculate_all_costs(distances):
     cost_arr = []
 
     # iterate over all the distances
@@ -16,14 +16,14 @@ def calculateAllCosts(distances):
         # discard when source = dest
         if distances[key]['weight'] != 0:
             # calculate the cost per mile and store in array
-            cost_arr.append(calculateCost(distances[key]['weight']))
+            cost_arr.append(calculate_cost(distances[key]['weight']))
 
     # return the final array
     return cost_arr
 
 
 # function to calculate avg cost of all rides from one starting station
-def calculateAvgCost(distances):
+def calculate_avg_cost(distances):
     total = 0
     count = 0
 
@@ -32,7 +32,7 @@ def calculateAvgCost(distances):
         # discard when source = dest
         if distances[key]['weight'] != 0:
             # calculate the cost per mile and store in array
-            total += calculateCost(distances[key]['weight'])
+            total += calculate_cost(distances[key]['weight'])
             count += 1
 
     # return the final array
@@ -42,7 +42,7 @@ def calculateAvgCost(distances):
 # TODO: trying to make a plot of the costs
 # https://www.geeksforgeeks.org/how-to-plot-normal-distribution-over-histogram-in-python/
 # function to plot the array
-def plotCalc(data):
+def plot_the_calc(data):
     mu, std = norm.fit(data)
     plt.hist(data, bins=100, density=True, alpha=0.6, color='blue')
     title = "Fit Values: {:.2f} and {:.2f}".format(mu, std)
@@ -50,13 +50,13 @@ def plotCalc(data):
     plt.show()
 
 
-def runCalc(distances, START, END):
+def run_calc(distances, START, END):
     print("\n## PRICE CALC ##")
 
     # cost_per_mile calc for the trip
-    cost_per_mile = calculateCost(round(distances[END]["weight"], 2))
+    cost_per_mile = calculate_cost(round(distances[END]["weight"], 2))
     print("Cost per mile: $" + str(cost_per_mile))
-    print("Average cost from " + START + ": $" + str(round(calculateAvgCost(distances), 2)))
+    print("Average cost from " + START + ": $" + str(round(calculate_avg_cost(distances), 2)))
 
     # cost_per_mile for all distances in the array
-    plotCalc(calculateAllCosts(distances))
+    plot_the_calc(calculate_all_costs(distances))

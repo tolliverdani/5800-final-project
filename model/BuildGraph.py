@@ -57,7 +57,7 @@ def add_edges_to_nodes(data, bus_data, MBTA):
         MBTA.addEdges(source, dest, color, weight)
 
 
-def BuildGraph():
+def build_graph():
     graph = Graph.Graph()
 
     # getting the station data

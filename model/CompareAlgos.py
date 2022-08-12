@@ -2,7 +2,7 @@ from model.CostAnalysis import *
 from model.ShortestPath import *
 
 
-def compareAlgos(graph, start, end):
+def compare_algos(graph, start, end):
     # run the distances using nested loops
     distances = shortest_path(graph, start)
     print_path(start, end, distances)
@@ -16,5 +16,5 @@ def compareAlgos(graph, start, end):
           + str(round(distances[end]["weight"], 2))
           + " miles")
 
-    runCalc(distances, start, end)
+    run_calc(distances, start, end)
 
