@@ -77,26 +77,14 @@ if __name__ == '__main__':
     print("\n## SELECT END STATION ##")
     END = MBTA.select_station()
 
-    # run the distances for the algorithm with nested loops
+    # run the distances using nested loops
     distances = MBTA.shortest_path(START)
     MBTA.print_path(START, END, distances)
 
-    # run the distances for the algorithm with heap
+    # run the distances using heap
     distances2 = MBTA.shortest_path_heap(START)
     MBTA.print_path(START, END, distances2)
 
-    # print("Total Distance from " + START + " to " + END + " = " + str(round(distances[END]["weight"], 2)) + " miles.")
+    print("Total Distance from " + START + " to " + END + " = " + str(round(distances[END]["weight"], 2)) + " miles.")
 
-    # distance calcs go here
-    distance = round(distances[END]["weight"], 2)
-    cost_per_mile = calculateCost(distance)
-    print(2.70 / distance)
-    print(cost_per_mile)
-
-    # TODO: should we use a plot for the averages for each line?
-    #  also we might want to move this to the view
-    # https://www.geeksforgeeks.org/graph-plotting-in-python-set-1/
-    # arr = calculateAllCosts(distances)
-    # print(arr)
-    # print(calculateAvgCost(distances))
-    # plotCalc(arr)
+    runCalc(distances, START, END)

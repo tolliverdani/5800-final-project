@@ -48,3 +48,15 @@ def plotCalc(data):
     title = "Fit Values: {:.2f} and {:.2f}".format(mu, std)
     plt.title(title)
     plt.show()
+
+
+def runCalc(distances, START, END):
+    print("\n## HERE IS THE PRICE CALC ##")
+
+    # cost_per_mile calc for the trip
+    cost_per_mile = calculateCost(round(distances[END]["weight"], 2))
+    print(cost_per_mile)
+    print("Average cost from " + START + ": " + str(calculateAvgCost(distances)))
+
+    # cost_per_mile for all distances in the array
+    plotCalc(calculateAllCosts(distances))

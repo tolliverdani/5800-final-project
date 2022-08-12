@@ -162,7 +162,7 @@ class Graph:
         end_time = time.time()
 
         # print total elapsed time
-        print("Time elapsed = " + str(end_time - start_time))
+        print("\n--> time elapsed: " + str(end_time - start_time))
 
         # return distance dictionary, which has shortest path to every station from source
         return distance_dict
@@ -189,11 +189,6 @@ class Graph:
                         source is None or distance_dict[key_j]["weight"] < distance_dict[source]["weight"]):
                     source = key_j
 
-            # if the weight is still infinity, skip it
-            # TODO: can we remove this check
-            if distance_dict[source]["weight"] == inf:
-                break
-
             # mark the source as visited / true
             visited_dict[source] = True
 
@@ -214,7 +209,7 @@ class Graph:
                     distance_dict[key]["color"] = color
 
         end_time = time.time()
-        print("Time elapsed = " + str(end_time - start_time))
+        print("\n--> time elapsed: " + str(end_time - start_time))
 
         # return the final dict
         return distance_dict
@@ -238,7 +233,7 @@ class Graph:
             print(stations)
         print()
 
-        station = input("\nType the station name: ")
+        station = input("Type the station name: ")
         while True:
             if station not in self.station_routes[color]:
                 station = input("\n!! That is not valid. Try again: ")
