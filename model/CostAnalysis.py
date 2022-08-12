@@ -50,13 +50,13 @@ def plot_the_calc(data):
     plt.show()
 
 
-def run_calc(distances, START, END):
+def run_calc(distances, start: str, end: str):
     print("\n## PRICE CALC ##")
 
     # cost_per_mile calc for the trip
-    cost_per_mile = calculate_cost(round(distances[END]["weight"], 2))
+    cost_per_mile = calculate_cost(round(distances[end]["weight"], 2))
     print("Cost per mile: $" + str(cost_per_mile))
-    print("Average cost from " + START + ": $" + str(round(calculate_avg_cost(distances), 2)))
+    print("Average cost from " + start + ": $" + str(round(calculate_avg_cost(distances), 2)))
 
     # cost_per_mile for all distances in the array
     plot_the_calc(calculate_all_costs(distances))

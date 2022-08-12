@@ -5,7 +5,7 @@ import time
 
 # function to create copy of graph as a dictionary to keep track of distances between nodes
 # key = station, weight = as described, prev = previous station, color = color of the line
-def create_distance_dictionary(graph, source):
+def create_distance_dictionary(graph, source: str):
     # create an empty dictionary
     d_nodes = {}
 
@@ -22,7 +22,7 @@ def create_distance_dictionary(graph, source):
 
 # function to create a tuple representation of the graph that holdes (distance, station)
 # so that the heapq can be used
-def create_distance_tuple(graph, source):
+def create_distance_tuple(graph, source: str):
     # create an empty dictionary
     d_nodes = []
 
@@ -52,7 +52,7 @@ def create_visited_dictionary(graph):
 
 
 # this is a shortest_path algorithm that uses a min heap via the heapq library
-def shortest_path_heap(graph, source):
+def shortest_path_heap(graph, source: str):
     # capture start time
     start_time = time.time()
 
@@ -114,7 +114,7 @@ def shortest_path_heap(graph, source):
 
 
 # function to calculate the shortest path using a loop to find the next shortest station
-def shortest_path(graph, source):
+def shortest_path(graph, source: str):
     # capture start time
     start_time = time.time()
 
@@ -160,7 +160,7 @@ def shortest_path(graph, source):
     return distance_dict
 
 
-def select_station(graph, string):
+def select_station(graph, string: str):
     print("\n## SELECT " + string + "ING STATION ##")
     print("Select the route on which your stop is located. Here are the available routes:")
     for keys in graph.station_routes.keys():

@@ -5,7 +5,7 @@ bus_csv = './data/MBTA_Bus_Distances.csv'
 
 
 # function to add station nodes to graph - O(n + k)
-def add_nodes_to_graph(MBTA_data, bus_data, MBTA):
+def add_nodes_to_graph(MBTA_data, bus_data, graph):
     # loop through the API data and
     # save the nodes in the graph
     for station in MBTA_data['features']:
@@ -14,7 +14,7 @@ def add_nodes_to_graph(MBTA_data, bus_data, MBTA):
         source.addColor(station['properties']['route_id'])
 
         # & saving it to the graph
-        MBTA.addNode(source)
+        graph.addNode(source)
 
     # loop through the CSV data and
     # save the nodes in the graph
@@ -24,10 +24,10 @@ def add_nodes_to_graph(MBTA_data, bus_data, MBTA):
         source.addColor(bus_data[station]['\ufeffroute_id'])
 
         # & saving it to the graph
-        MBTA.addNode(source)
+        graph.addNode(source)
 
 
-def add_edges_to_nodes(data, bus_data, MBTA):
+def add_edges_to_nodes(data, bus_data, graph):
     # loop through the API data and
     # save the edges in the nodes
     for station in data['features']:
@@ -40,7 +40,7 @@ def add_edges_to_nodes(data, bus_data, MBTA):
         color = station['properties']['route_id']
 
         # adding the edge between nodes
-        MBTA.addEdges(source, dest, color, weight)
+        graph.addEdges(source, dest, color, weight)
 
     # loop through the CSV data and
     # save the nodes in the graph
@@ -54,7 +54,7 @@ def add_edges_to_nodes(data, bus_data, MBTA):
         color = bus_data[station]['\ufeffroute_id']
 
         # adding the edge between nodes
-        MBTA.addEdges(source, dest, color, weight)
+        graph.addEdges(source, dest, color, weight)
 
 
 def build_graph():

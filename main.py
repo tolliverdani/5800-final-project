@@ -8,8 +8,8 @@ if __name__ == '__main__':
     graph = build_graph()
 
     # get input values from the user
-    START = select_station(graph, "START")
-    END = select_station(graph, "END")
+    start = select_station(graph, "START")
+    end = select_station(graph, "END")
 
     # run the comparison algos
-    compare_algos(graph, START, END)
+    compare_algos(graph, start, end)
