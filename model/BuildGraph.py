@@ -27,6 +27,7 @@ def add_nodes_to_graph(MBTA_data, bus_data, graph):
         graph.addNode(source)
 
 
+# function to add station edges to graph - O(n + k)
 def add_edges_to_nodes(data, bus_data, graph):
     # loop through the API data and
     # save the edges in the nodes
@@ -57,6 +58,7 @@ def add_edges_to_nodes(data, bus_data, graph):
         graph.addEdges(source, dest, color, weight)
 
 
+# main function to build the graph
 def build_graph():
     graph = Graph.Graph()
 
