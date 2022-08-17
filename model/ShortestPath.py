@@ -124,11 +124,11 @@ def shortest_path(graph, source: str):
     distance_dict = create_distance_dictionary(graph, source)
 
     # iterate over the nodes in the graph
-    for _a, _b in graph.graph.items():
+    for i in range(len(graph.graph.items())):
 
         source = None
 
-        # use a flor loop to find the next smallest weight of an unvisited node
+        # use a for loop to find the next smallest weight of an unvisited node
         for key_j in graph.graph.keys():
             if not visited_dict[key_j] and (
                     source is None or distance_dict[key_j]["weight"] < distance_dict[source]["weight"]):
