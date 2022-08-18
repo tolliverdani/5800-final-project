@@ -160,14 +160,18 @@ def shortest_path(graph, source: str):
     return distance_dict
 
 
+# function to select a station from user inputs
 def select_station(graph, string: str):
     print("\n## SELECT " + string + "ING STATION ##")
     print("Select the route on which your stop is located. Here are the available routes:")
+
+    # print all all of the line colors for the user
     for keys in graph.station_routes.keys():
         print(keys)
 
     print()
 
+    # get the user's selection for the line color
     color = input("Type the route name: ")
     while True:
         if color not in graph.station_routes.keys():
@@ -175,18 +179,22 @@ def select_station(graph, string: str):
         else:
             break
 
+    # print all all of the stations in that line color
     print("\nSelect the station. Here are the available stations:")
     for stations in graph.station_routes[color]:
         print(stations)
     print()
 
+    # get the user's selection for the station in that line
     station = input("Type the station name: ")
     while True:
+        # check if the station is in the list and is valid
         if station not in graph.station_routes[color]:
             station = input("\n!! That is not valid. Try again: ")
         else:
             break
 
+    # return the station
     return station
 
 
@@ -201,6 +209,7 @@ def print_path(source: str, dest: str, distance_dict):
     color = distance_dict[dest]['color']
     path = []
 
+    # generate the path from the distance_dict
     while True:
         path.append((prev, color))
         prev = distance_dict[prev]['prev']
@@ -208,6 +217,7 @@ def print_path(source: str, dest: str, distance_dict):
         if prev == source:
             break
 
+    # print a user-friendly text-output with the specs
     print("## HERE IS YOUR ROUTE ##")
     print("Start at " + source)
     for station in reversed(path):

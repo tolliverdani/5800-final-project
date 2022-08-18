@@ -2,6 +2,8 @@ from model.CostAnalysis import *
 from model.ShortestPath import *
 
 
+# function that compares the two shortest distance algorithms
+# and outputs a user-friendly text with the specs
 def compare_algos(graph, start: str, end: str):
     # run the distances using nested loops
     distances = shortest_path(graph, start)

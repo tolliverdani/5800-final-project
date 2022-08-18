@@ -20,6 +20,8 @@ def calculate_avg_cost(distances):
     return total / count
 
 
+# function that runs the cost analysis on the graph
+# and outputs a user-friendly text with the specs
 def run_calc(distances, start: str, end: str):
     print("\n## PRICE CALC ##")
 

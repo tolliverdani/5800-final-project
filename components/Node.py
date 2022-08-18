@@ -8,12 +8,15 @@ class Node:
         # edges will be a tuple ("destination", "color", weight)
         self.edges = []
 
+    # function to retrieve a station name from a node
     def getStation(self):
         return self.station
 
+    # function to store an adjacent station in a node
     def addEdge(self, station: str, color: str, weight: float):
         self.edges.append((station, color, weight))
 
+    # function to add a line color to a node
     def addColor(self, color: str):
         if type(color) == list:
             temp = ''
